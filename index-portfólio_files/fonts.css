@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProThin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProLightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBook.otf") format("opentype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBookItalic.otf") format("opentype");
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProRegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProMediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProHeavy.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProHeavyItalic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBlack.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "filson-pro";
+  src: url("/assets/font/FilsonProBlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  font-family: "filson-pro", Arial, sans-serif;
+}

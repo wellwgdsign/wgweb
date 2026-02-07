@@ -1,0 +1,334 @@
+@media (max-width: 768px) {
+  .faq-section-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .faq-section-img {
+    width: 100%;
+  }
+  .history-purchase-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .history-game-preview {
+    width: 100%;
+    height: 200px;
+  }
+
+  .history-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .history-game-title {
+    font-size: 1.1rem;
+  }
+  .error-code {
+    font-size: 4rem;
+  }
+  .img-promo-pricing {
+    max-width: 95%;
+  }
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-home,
+  .btn-search {
+    width: 200px;
+  }
+
+  .error-404-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  * {
+    letter-spacing: 1px;
+  }
+  nav {
+    padding: 0 1rem;
+    height: auto;
+  }
+  .nav-justify {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    display: none;
+  }
+  .user-info {
+    display: none;
+  }
+  .dropdown-trigger,
+  .title-category {
+    font-size: 12px;
+  }
+  .login-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .center-menu {
+    top: 40%;
+  }
+  .nav-right {
+    position: relative;
+    top: -10%;
+    gap: 5px;
+  }
+  .language-text {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .language-dropdown-trigger {
+    width: 120px;
+  }
+  .language-dropdown-item {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .currency-text {
+    font-size: 12px;
+    font-weight: 300;
+  }
+  .slider-container {
+    max-width: 360px;
+  }
+  .main {
+    max-width: 360px;
+  }
+  .currency-name,
+  .currency-symbol {
+    font-size: 12px;
+  }
+  .carousel-container {
+    height: auto;
+    position: relative;
+    bottom: 100px;
+    width: 100%;
+  }
+  .template-description {
+    font-size: 12px;
+    max-width: 100%;
+  }
+  .template-title {
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+  }
+  .title-container {
+    width: 100%;
+  }
+
+  .carousel-wrapper {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .carousel-cards {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    left: 0;
+  }
+
+  .card {
+    flex-shrink: 0;
+  }
+  .template-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .price {
+    text-align: center;
+    align-items: center;
+  }
+  .template-info {
+    min-width: 100% !important;
+  }
+  .template-info::after {
+    top: calc(200px + 55%);
+  }
+  .slide::after {
+    top: calc(200px + -45%);
+  }
+  .Templates-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 100%;
+  }
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  .purchase-content {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .game-preview {
+    height: 180px;
+  }
+
+  .purchase-card {
+    padding: 20px;
+  }
+  .painel-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-card {
+    width: 100%;
+    top: 40%;
+  }
+  .profile-actions::after {
+    top: calc(90% + 0%);
+  }
+  body {
+    overflow-x: hidden;
+    height: 100dvh;
+  }
+  .carousel-navigation {
+    top: 710px !important;
+    left: -250px !important;
+  }
+  .card-actions-buttons {
+    flex-direction: column;
+  }
+  .nav-justify,
+  nav,
+  .main {
+    padding: 0 0.5rem;
+  }
+  /* Reforçar overflow-x: hidden em elementos críticos */
+  body,
+  .carousel-container,
+  .slider-container,
+  .Templates-container,
+  .dropdown-menu,
+  .cards-wrapper {
+    overflow-x: hidden;
+  }
+  #templatesDropdownMenu {
+    min-width: 100%;
+    margin-left: -112px;
+  }
+  .artist-profile {
+    margin-top: 40px;
+  }
+  .artist-info {
+    padding-top: 50px;
+  }
+  .card-pag {
+    width: 185px;
+  }
+  .login-submit-btn {
+    padding: 12px 12px;
+  }
+}
+/* Media query para telas menores que 480px */
+@media (max-width: 480px) {
+  .history-purchase-item {
+    border-radius: 8px;
+  }
+
+  .history-purchase-content {
+    padding: 15px;
+  }
+
+  .history-game-preview {
+    height: 180px;
+  }
+  /* Ajustar contêineres */
+  .carousel-container,
+  .slider-container,
+  .Templates-container {
+    padding: 0 10px;
+  }
+
+  /* Ajustar cards para ocupar toda a largura */
+  .card {
+    max-width: 100%;
+  }
+
+  /* Ajustar slider */
+  .slider-wrapper {
+    height: 420px;
+  }
+
+  .slide img {
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    margin: 20px 5px 0 5px;
+  }
+
+  .slide-content {
+    padding: 10px 15px;
+  }
+
+  .slide-content h2 {
+    font-size: 18px;
+  }
+
+  .slide-content p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  /* Ajustar dropdown */
+  .dropdown-menu {
+    max-width: 95%;
+    padding: 6px;
+  }
+
+  /* Ajustar Templates */
+  .Templates-wrapper {
+    padding: 0;
+    gap: 15px;
+  }
+
+  /* Ajustar profile-card */
+  .profile-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-title {
+    font-size: 22px;
+  }
+
+  /* Ajustar purchase-card */
+  .game-preview {
+    width: 100%;
+    max-width: 200px;
+    height: 120px;
+  }
+}
+
+/* Ajustar navegação fixa */
+.nav-justify,
+nav,
+.main {
+  padding: 0 1rem;
+}
