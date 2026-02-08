@@ -1,0 +1,1203 @@
+/* ============================================
+   AUTH BUTTON (NAV)
+   ============================================ */
+.auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.auth-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.auth-btn.logged-in {
+    gap: 8px;
+    font-weight: bold;
+    color: #000;
+    border-color: rgba(0, 212, 170, 0.3);
+    background: #00d4aa;
+}
+
+.auth-btn.logged-in:hover {
+    border-color: var(--primary);
+    background: rgba(0, 212, 170, 0.05);
+}
+
+.user-avatar-small {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.auth-btn-name {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================================
+   AUTH MODAL (LOGIN/CADASTRO)
+   ============================================ */
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 19, 19, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 2500;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.auth-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 420px;
+    max-height: 90vh;
+    background: rgba(17, 17, 17, 0.85);
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    z-index: 2600;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.auth-modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.auth-modal-content {
+    padding: 40px;
+}
+
+.auth-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.auth-modal-close:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.auth-modal-header {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.auth-logo {
+    display: none;
+}
+
+.auth-modal-header h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.auth-modal-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.auth-tabs {
+    display: none;
+}
+
+.auth-forms {
+    position: relative;
+}
+
+.auth-form {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    padding: 12px 16px;
+    background: #111;
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.google-btn:hover {
+    border: 1px solid rgba(0, 204, 153, 0.3);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(102, 102, 102, 0.1);
+}
+
+.auth-divider span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.auth-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-field i {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.auth-field input {
+    width: 100%;
+    padding: 14px 16px 14px 42px;
+    background: #111;
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    color: #a8a8a8;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+
+.auth-field input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 204, 153, 0.3);
+}
+
+.auth-field input::placeholder {
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.auth-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    padding: 12px 24px;
+    background: #113dbf;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 2px;
+}
+
+.auth-submit:hover {
+    box-shadow: 0 0 20px 0 rgba(17, 61, 191, 0.5);
+    transform: translateY(-2px);
+}
+
+.auth-button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.auth-switch {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-top: 8px;
+}
+
+.auth-switch a {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.auth-switch a:hover {
+    color: #04e0a9;
+}
+
+.auth-terms {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.auth-terms a {
+    color: #113dbf;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.auth-terms a:hover {
+    color: #4facfe;
+}
+
+/* ============================================
+   PAINEL - BACKGROUND
+   ============================================ */
+.painel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.6s ease;
+    z-index: 1;
+    background: url(https://i.imgur.com/y87V9KX.jpeg) no-repeat;
+    background-color: #101010;
+}
+
+.painel-bg::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    backdrop-filter: blur(3.5px);
+}
+
+/* ============================================
+   PAINEL - CONTAINER
+   ============================================ */
+.painel-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 200px 20px 100px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   PAINEL - NAVEGACAO (TABS)
+   ============================================ */
+.painel-nav-wrapper {
+    margin-bottom: 30px;
+}
+
+.painel-nav {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.painel-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 15px;
+    background: #ffffff14;
+    border: none;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #a8a8a8;
+}
+
+.painel-nav-btn span {
+    color: #b8b8b8;
+}
+
+.painel-nav-btn i {
+    font-size: 20px;
+    color: #00d4aa;
+}
+
+.painel-nav-btn:hover {
+    color: #04e0a9;
+}
+
+.painel-nav-btn:hover span,
+.painel-nav-btn:hover i {
+    color: #04e0a9;
+}
+
+.painel-nav-btn.active {
+    color: #00d4aa;
+}
+
+.painel-nav-btn.active span,
+.painel-nav-btn.active i {
+    color: #00d4aa;
+}
+
+.painel-nav-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 204, 153, 0) 0%,
+        var(--primary) 50%,
+        rgba(0, 204, 153, 0) 100%
+    );
+    box-shadow: 0 0 10px 0 rgba(0, 204, 153, 0.5);
+    border-radius: 50%;
+}
+
+.painel-mobile-toggle {
+    display: none;
+}
+
+/* ============================================
+   PAINEL - TABS CONTENT
+   ============================================ */
+.painel-tab {
+    display: none;
+    padding: 30px;
+    animation: fadeInPanel 0.3s ease;
+    transform: translateY(-10px);
+    border: 1px solid #25262c;
+    background: #0c0e0f;
+    box-shadow: 0 15px 20px #0b0b0c8c;
+}
+
+.painel-tab.active {
+    display: block;
+}
+
+@keyframes fadeInPanel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   PAINEL - GRID (VISAO GERAL)
+   ============================================ */
+.painel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.painel-card-header {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    bottom: 10px;
+    padding: 10px 0;
+}
+
+.panel-text-new {
+    display: flex;
+    margin: 0 auto;
+    gap: 4px;
+}
+
+.panel-text-new i {
+    align-content: center;
+    color: #00d4aa;
+}
+
+.text-panel-titulo {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   PAINEL - TOTAL GASTO / NIVEIS
+   ============================================ */
+.painel-total-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.painel-total-value {
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.valor-moeda {
+    color: var(--primary);
+    text-shadow: 0 0 20px rgba(0, 204, 153, 0.2);
+}
+
+.painel-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+}
+
+.painel-member-badge {
+    font-size: 12px;
+    color: #9c9c9c;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   NIVEL PROGRESS (RANKING)
+   ============================================ */
+.nivel-progress-container {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.nivel-badges-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 12px;
+    padding: 0 2px;
+}
+
+.nivel-badge-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.nivel-badge-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nivel-badge-icon i {
+    color: inherit;
+}
+
+.nivel-badge-icon.inactive {
+    background: #00d4aa;
+    color: #000;
+    opacity: 0.5;
+}
+
+.nivel-badge-icon.active {
+    background: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nivel-badge-icon.completed {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+}
+
+.nivel-badge-icon.current {
+    background: #00d4aa;
+    color: #fff;
+    box-shadow: 0 5px 10px #00d4aa;
+    transform: translateY(-10px);
+}
+
+.nivel-badge-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.nivel-badge-text.active {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.nivel-badge-text.completed {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.nivel-desconto {
+    font-size: 10px;
+    display: block;
+}
+
+.nivel-progress-text {
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.nivel-progress-text.nivel-max {
+    font-weight: 400;
+}
+
+.nivel-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #ffffff3d;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nivel-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4aa, #8bc34a);
+    transition: width 1s ease;
+}
+
+.nivel-progress-fill.max-level {
+    width: 100%;
+    background: linear-gradient(90deg, #ffd700 0%, #fff 50%, #ffd700 100%);
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ============================================
+   PAINEL - EMPTY STATE
+   ============================================ */
+.painel-empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #484848;
+    padding: 40px 20px;
+}
+
+.painel-empty-state i {
+    font-size: 48px;
+    opacity: 0.3;
+    color: #cacaca;;
+}
+
+.painel-empty-state p {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #7c7c7c;
+    text-align: center;
+}
+
+.btn-shop-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.btn-shop-link:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 204, 153, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   PAINEL - SECTION TITLE
+   ============================================ */
+.painel-section-title {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin: 0 0 30px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.1);
+}
+
+/* ============================================
+   PAINEL - ULTIMA COMPRA (OVERVIEW)
+   ============================================ */
+.painel-purchase-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.painel-product-image {
+    width: 100%;
+    height: 235px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    align-content: center;
+}
+
+.painel-product-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(9, 10, 15, 1) 10%,
+        rgba(9, 10, 15, 0.55) 70%,
+        rgba(9, 10, 15, 0) 100%
+    );
+    z-index: 1;
+}
+
+.painel-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.painel-purchase-info {
+    position: absolute;
+    z-index: 6;
+    padding: 15px;
+    bottom: 0;
+    left: 0;
+}
+
+.painel-product-name {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.painel-product-name:hover {
+    color: var(--primary);
+}
+
+.painel-purchase-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* ============================================
+   PAINEL - COMPRAS (HISTORICO)
+   ============================================ */
+.painel-purchases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.painel-purchase-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    transition: all 0.3s ease;
+}
+
+.painel-purchase-item:hover {
+    border-color: rgba(0, 204, 153, 0.3);
+}
+
+.painel-purchase-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.painel-purchase-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.painel-purchase-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.painel-purchase-title {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.painel-purchase-title:hover {
+    color: var(--primary);
+}
+
+.painel-purchase-extra {
+    font-size: 12px;
+    color: #484848;
+    font-weight: 300;
+}
+
+.painel-purchase-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+    color: #484848;
+    letter-spacing: 0.5px;
+}
+
+.painel-status {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.status-concluido {
+    background: rgba(0, 204, 153, 0.1);
+    color: var(--primary);
+}
+
+.status-processando {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.status-cancelado {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+/* ============================================
+   PAINEL - DOWNLOADS
+   ============================================ */
+.painel-downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.painel-download-card {
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.painel-download-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 204, 153, 0.3);
+}
+
+.painel-download-image {
+    position: relative;
+    height: 140px;
+    overflow: hidden;
+}
+
+.painel-download-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.painel-download-card:hover .painel-download-image img {
+    transform: scale(1.05);
+}
+
+.painel-download-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.painel-download-card:hover .painel-download-overlay {
+    opacity: 1;
+}
+
+.btn-download {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.btn-download i {
+    color: white;
+}
+
+.btn-download:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 204, 153, 0.5);
+    transform: translateY(-2px);
+}
+
+.painel-download-info {
+    padding: 15px;
+}
+
+.painel-download-info h4 {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin: 0 0 6px 0;
+    letter-spacing: 0.5px;
+}
+
+.download-date {
+    font-size: 11px;
+    color: #484848;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   PAINEL - PERFIL
+   ============================================ */
+.painel-profile {
+    max-width: 100%;
+}
+
+.painel-profile-header {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    background: url(https://i.imgur.com/yAvP0jw.png);
+    flex-direction: row-reverse;
+    align-items: center;
+    background-size: 115%;
+    background-position: 0 40%;
+}
+
+.painel-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgb(0 212 170);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: #07181487;
+}
+
+.painel-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.painel-profile-info h2 {
+    font-size: 25px;
+    font-weight: 300;
+    color: #dcdcdc;
+    margin: 0 0 8px 0;
+    letter-spacing: 3px;
+}
+
+.painel-member-type {
+    font-size: 15px;
+    font-weight: 300;
+    color: #01d1a7;
+    letter-spacing: 2px;
+}
+
+.painel-profile-details {
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    padding: 30px;
+}
+
+.painel-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    gap: 50px;
+}
+
+.painel-profile-details .painel-detail-row {
+    padding: 15px 0;
+    border-bottom: 1px solid #25262c;
+}
+
+.painel-profile-details .painel-detail-row:last-child {
+    border-bottom: none;
+}
+
+.painel-detail-row span:first-child {
+    color: #707070;
+}
+
+.painel-detail-row span:last-child {
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   RESPONSIVO - PAINEL
+   ============================================ */
+@media (max-width: 768px) {
+    .painel-container {
+        padding: 120px 15px 60px;
+    }
+
+    .painel-nav {
+        position: relative;
+        flex-direction: column;
+        max-height: 52px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .painel-nav.open {
+        max-height: 300px;
+    }
+
+    .painel-nav-btn {
+        justify-content: flex-start;
+        padding: 12px 16px;
+    }
+
+    .painel-nav-btn span {
+        display: none;
+    }
+
+    .painel-nav.open .painel-nav-btn span {
+        display: inline;
+    }
+
+    .painel-mobile-toggle {
+        display: flex;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .painel-tab {
+        padding: 20px;
+    }
+
+    .painel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-purchase-wrapper {
+        flex-direction: column;
+    }
+
+    .painel-product-image {
+        width: 100%;
+        height: 180px;
+    }
+
+    .painel-total-value {
+        font-size: 36px;
+    }
+
+    .painel-purchase-item {
+        flex-direction: column;
+    }
+
+    .painel-purchase-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .painel-purchase-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .painel-downloads-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-profile-header {
+        padding: 30px 20px;
+    }
+
+    .painel-profile-details {
+        padding: 20px;
+    }
+
+    .auth-btn .auth-btn-name {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .painel-container {
+        padding: 120px 15px 60px;
+    }
+
+    .painel-tab {
+        padding: 15px;
+    }
+
+    .painel-total-value {
+        font-size: 28px;
+    }
+
+    .painel-section-title {
+        font-size: 16px;
+    }
+
+    .auth-modal-content {
+        padding: 25px;
+    }
+}
+
+.painel-admin-btn {
+    color: #c8ff00 !important;
+}
+
+.painel-admin-btn i {
+    color: #c8ff00;
+}
+
+.download-files-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.download-file-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: rgba(200, 255, 0, 0.08);
+    border: 1px solid rgba(200, 255, 0, 0.15);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.download-file-tag:hover {
+    background: rgba(200, 255, 0, 0.15);
+    color: #c8ff00;
+}
+
+.download-file-tag i {
+    font-size: 0.8rem;
+    color: #c8ff00;
+}

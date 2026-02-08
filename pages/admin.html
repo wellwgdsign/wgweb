@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - WGDS Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="icon" href="../assets/img/fav-logo/favicon.png" type="image/x-icon" />
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-icon" src="../assets/img/fav-logo/logowg.png" alt="@wg.dsign">
+                <span class="logo-text">WGDS Studio</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#shop" class="nav-link">Shop</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-trigger">
+                        Servicos <i class="ri-arrow-down-s-line"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="muonline.html" class="dropdown-item"><i class="ri-gamepad-line"></i><span>MuOnline</span></a>
+                        <a href="launchers.html" class="dropdown-item"><i class="ri-rocket-2-line"></i><span>Game Launcher</span></a>
+                        <a href="templates.html" class="dropdown-item"><i class="ri-layout-4-line"></i><span>Templates</span></a>
+                        <a href="logos.html" class="dropdown-item"><i class="ri-pen-nib-line"></i><span>Logotipo</span></a>
+                        <a href="banners.html" class="dropdown-item"><i class="ri-image-line"></i><span>Banners</span></a>
+                    </div>
+                </div>
+                <a href="../index.html#contato" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-actions">
+                <button class="auth-btn logged-in" id="authBtn">
+                    <i class="ri-shield-user-line"></i>
+                    <span class="auth-btn-name">Admin</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="painel-bg" id="painelBg"></div>
+
+        <div class="admin-container">
+            <div class="admin-header">
+                <div class="admin-header-info">
+                    <h1><i class="ri-shield-user-line"></i> Painel Administrador</h1>
+                    <p>Gerencie produtos, pedidos e membros do site</p>
+                </div>
+                <span class="admin-user-name" id="adminUserName"></span>
+            </div>
+
+            <div class="admin-nav-wrapper">
+                <div class="admin-nav">
+                    <button class="admin-nav-btn active" data-tab="produtos">
+                        <i class="ri-shopping-bag-3-line"></i>
+                        <span>Produtos</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="pedidos">
+                        <i class="ri-file-list-3-line"></i>
+                        <span>Pedidos</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="membros">
+                        <i class="ri-group-line"></i>
+                        <span>Membros</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="portfolio">
+                        <i class="ri-image-line"></i>
+                        <span>Portfolio</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="slides">
+                        <i class="ri-slideshow-line"></i>
+                        <span>Slides</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="categorias">
+                        <i class="ri-folders-line"></i>
+                        <span>Categorias</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="downloads">
+                        <i class="ri-download-cloud-line"></i>
+                        <span>Downloads</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="voltar-painel">
+                        <i class="ri-arrow-left-line"></i>
+                        <span>Meu Painel</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="logout">
+                        <i class="ri-logout-box-r-line"></i>
+                        <span>Sair</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB: PRODUTOS -->
+            <div class="admin-tab active" id="tab-produtos">
+                <div class="admin-tab-header">
+                    <h2 class="painel-section-title">Gerenciar Produtos</h2>
+                    <button class="admin-btn admin-btn-add" onclick="openAddProduct()">
+                        <i class="ri-add-line"></i> Novo Produto
+                    </button>
+                </div>
+                <div class="admin-stats" id="adminStats"></div>
+                <div id="adminProductsList"></div>
+            </div>
+
+            <!-- TAB: PEDIDOS -->
+            <div class="admin-tab" id="tab-pedidos">
+                <h2 class="painel-section-title">Historico de Pedidos</h2>
+                <div class="admin-stats" id="ordersStats"></div>
+                <div id="adminOrdersList"></div>
+            </div>
+
+            <!-- TAB: MEMBROS -->
+            <div class="admin-tab" id="tab-membros">
+                <h2 class="painel-section-title">Membros Cadastrados</h2>
+                <div class="admin-stats" id="membersStats"></div>
+                <div id="adminMembersList"></div>
+            </div>
+
+            <!-- TAB: PORTFOLIO -->
+            <div class="admin-tab" id="tab-portfolio">
+                <div class="admin-tab-header">
+                    <h2 class="painel-section-title">Gerenciar Portfolio</h2>
+                    <button class="admin-btn admin-btn-add" onclick="openAddPortfolio()">
+                        <i class="ri-add-line"></i> Novo Trabalho
+                    </button>
+                </div>
+                <div class="admin-stats" id="portfolioStats"></div>
+                <div id="adminPortfolioList"></div>
+            </div>
+
+            <!-- TAB: SLIDES -->
+            <div class="admin-tab" id="tab-slides">
+                <div class="admin-tab-header">
+                    <h2 class="painel-section-title">Gerenciar Slides</h2>
+                    <button class="admin-btn admin-btn-add" onclick="openAddSlide()">
+                        <i class="ri-add-line"></i> Novo Slide
+                    </button>
+                </div>
+                <div class="admin-stats" id="slidesStats"></div>
+                <div id="adminSlidesList"></div>
+            </div>
+
+            <!-- TAB: CATEGORIAS -->
+            <div class="admin-tab" id="tab-categorias">
+                <div class="admin-tab-header">
+                    <h2 class="painel-section-title">Gerenciar Categorias</h2>
+                    <button class="admin-btn admin-btn-add" onclick="openAddCategory()">
+                        <i class="ri-add-line"></i> Nova Categoria
+                    </button>
+                </div>
+                <div class="admin-stats" id="categoriesStats"></div>
+                <div id="adminCategoriesList"></div>
+            </div>
+
+            <!-- TAB: DOWNLOADS -->
+            <div class="admin-tab" id="tab-downloads">
+                <div class="admin-tab-header">
+                    <h2 class="painel-section-title">Gerenciar Downloads</h2>
+                </div>
+                <div class="admin-stats" id="downloadsStats"></div>
+                <div class="admin-downloads-filter">
+                    <button class="admin-dl-filter-btn active" data-filter="all" onclick="filterAdminDownloads('all')">Todos</button>
+                    <button class="admin-dl-filter-btn" data-filter="with-files" onclick="filterAdminDownloads('with-files')">Com Arquivos</button>
+                    <button class="admin-dl-filter-btn" data-filter="no-files" onclick="filterAdminDownloads('no-files')">Sem Arquivos</button>
+                </div>
+                <div id="adminDownloadsList"></div>
+            </div>
+        </div>
+
+        <!-- MODAL: FORMULARIO PRODUTO -->
+        <div class="admin-modal" id="productFormModal">
+            <div class="admin-modal-content">
+                <div class="admin-modal-header">
+                    <h2 id="formTitle">Adicionar Produto</h2>
+                    <button class="admin-modal-close" onclick="closeProductForm()">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <form id="productForm" onsubmit="handleProductSubmit(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-form-group">
+                            <label>Nome do Produto *</label>
+                            <input type="text" id="productName" placeholder="Ex: Launcher Premium" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Preco (R$) *</label>
+                            <input type="number" id="productPrice" step="0.01" min="0" placeholder="0.00" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Categoria *</label>
+                            <select id="productCategory" required>
+                                <option value="">Selecione...</option>
+                                <option value="launchers">Launchers</option>
+                                <option value="templates">Templates</option>
+                                <option value="logos">Logos</option>
+                                <option value="banners">Banners</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Desconto (%)</label>
+                            <input type="number" id="productDiscount" min="0" max="99" value="0" placeholder="0">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Tag / Badge</label>
+                            <input type="text" id="productTag" placeholder="Ex: Premium, Novo, Exclusivo">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Descricao *</label>
+                            <textarea id="productDescription" rows="3" placeholder="Descricao do produto..." required></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem (URL)</label>
+                            <input type="text" id="productImageUrl" placeholder="assets/img/..." onchange="previewImageFromUrl()">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem (Upload)</label>
+                            <input type="file" id="productImageFile" accept="image/*" onchange="previewImage()">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Preview</label>
+                            <div class="admin-image-preview" id="imagePreview"></div>
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label><i class="ri-download-cloud-line"></i> Arquivo para Download do Cliente</label>
+                            <div class="admin-upload-inline">
+                                <input type="file" id="productDownloadFile">
+                                <small class="admin-form-hint">Arquivo PSD, ZIP, RAR, PDF (max 50MB) - O cliente recebera este arquivo apos a compra</small>
+                            </div>
+                            <div id="productDownloadFilesList" class="admin-inline-files-list"></div>
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="button" class="admin-btn admin-btn-cancel" onclick="closeProductForm()">Cancelar</button>
+                        <button type="submit" class="admin-btn admin-btn-save">
+                            <i class="ri-save-line"></i> Salvar Produto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL: GERENCIAR ARQUIVOS -->
+        <div class="admin-modal" id="filesManagerModal">
+            <div class="admin-modal-content">
+                <div class="admin-modal-header">
+                    <h2><i class="ri-folder-line"></i> Arquivos: <span id="filesProductName"></span></h2>
+                    <button class="admin-modal-close" onclick="closeFilesManager()">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <input type="hidden" id="filesProductId">
+                <div class="admin-upload-area">
+                    <div class="admin-upload-row">
+                        <input type="file" id="downloadFile">
+                        <button type="button" class="admin-btn admin-btn-upload" id="uploadFileBtn" onclick="handleFileUploadSubmit()">
+                            <i class="ri-upload-cloud-line"></i> Upload
+                        </button>
+                    </div>
+                    <p class="admin-upload-hint">Arquivos PSD, ZIP, RAR, PDF, etc. (max 50MB)</p>
+                </div>
+                <div id="filesList"></div>
+                <div class="admin-form-actions">
+                    <button type="button" class="admin-btn admin-btn-cancel" onclick="closeFilesManager()">Fechar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL: FORMULARIO PORTFOLIO -->
+        <div class="admin-modal" id="portfolioFormModal">
+            <div class="admin-modal-content">
+                <div class="admin-modal-header">
+                    <h2 id="portfolioFormTitle">Adicionar ao Portfolio</h2>
+                    <button class="admin-modal-close" onclick="closePortfolioForm()">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <form id="portfolioForm" onsubmit="handlePortfolioSubmit(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-form-group">
+                            <label>Titulo *</label>
+                            <input type="text" id="portfolioTitle" placeholder="Ex: Launcher Dark Edition" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Categoria *</label>
+                            <select id="portfolioCategory" required>
+                                <option value="">Selecione...</option>
+                                <option value="launchers">Launchers</option>
+                                <option value="templates">Templates</option>
+                                <option value="logos">Logos</option>
+                                <option value="banners">Banners</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Descricao</label>
+                            <textarea id="portfolioDescription" rows="3" placeholder="Descricao do trabalho..."></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem (URL)</label>
+                            <input type="text" id="portfolioImageUrl" placeholder="assets/img/..." onchange="previewPortfolioImageFromUrl()">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem (Upload)</label>
+                            <input type="file" id="portfolioImageFile" accept="image/*" onchange="previewPortfolioImage()">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Preview</label>
+                            <div class="admin-image-preview" id="portfolioImagePreview"></div>
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="button" class="admin-btn admin-btn-cancel" onclick="closePortfolioForm()">Cancelar</button>
+                        <button type="submit" class="admin-btn admin-btn-save">
+                            <i class="ri-save-line"></i> Salvar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL: FORMULARIO SLIDE -->
+        <div class="admin-modal" id="slideFormModal">
+            <div class="admin-modal-content">
+                <div class="admin-modal-header">
+                    <h2 id="slideFormTitle">Adicionar Slide</h2>
+                    <button class="admin-modal-close" onclick="closeSlideForm()">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <form id="slideForm" onsubmit="handleSlideSubmit(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-form-group full-width">
+                            <label>Titulo *</label>
+                            <input type="text" id="slideTitle" placeholder="Ex: Templates Premium" required>
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Subtitulo</label>
+                            <input type="text" id="slideSubtitle" placeholder="Ex: Sites prontos para seu servidor">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Descricao</label>
+                            <textarea id="slideDescription" rows="3" placeholder="Texto descritivo do slide..."></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Tag / Badge</label>
+                            <input type="text" id="slideTag" placeholder="Ex: Novo, Premium, Destaque">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Texto do Botao</label>
+                            <input type="text" id="slideButtonText" placeholder="Ex: Ver Portfolio">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Link do Botao</label>
+                            <input type="text" id="slideButtonLink" placeholder="Ex: #portfolio, #shop, pages/templates.html">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem de Fundo (URL)</label>
+                            <input type="text" id="slideImageUrl" placeholder="assets/img/..." onchange="previewSlideImageFromUrl()">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Imagem de Fundo (Upload)</label>
+                            <input type="file" id="slideImageFile" accept="image/*" onchange="previewSlideImage()">
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Preview</label>
+                            <div class="admin-image-preview" id="slideImagePreview"></div>
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="button" class="admin-btn admin-btn-cancel" onclick="closeSlideForm()">Cancelar</button>
+                        <button type="submit" class="admin-btn admin-btn-save">
+                            <i class="ri-save-line"></i> Salvar Slide
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL: FORMULARIO CATEGORIA -->
+        <div class="admin-modal" id="categoryFormModal">
+            <div class="admin-modal-content">
+                <div class="admin-modal-header">
+                    <h2 id="categoryFormTitle">Adicionar Categoria</h2>
+                    <button class="admin-modal-close" onclick="closeCategoryForm()">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <form id="categoryForm" onsubmit="handleCategorySubmit(event)">
+                    <div class="admin-form-grid">
+                        <div class="admin-form-group">
+                            <label>Nome da Categoria *</label>
+                            <input type="text" id="categoryName" placeholder="Ex: Flyers" required oninput="autoGenerateSlug()">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Slug (ID unico)</label>
+                            <input type="text" id="categorySlug" placeholder="Ex: flyers (gerado automaticamente)">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Icone (Classe RemixIcon)</label>
+                            <input type="text" id="categoryIcon" placeholder="Ex: ri-image-line" value="ri-folder-line">
+                            <small class="admin-form-hint">Veja icones em <a href="https://remixicon.com" target="_blank">remixicon.com</a></small>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Tipo *</label>
+                            <select id="categoryType" required>
+                                <option value="ambos">Shop + Portfolio</option>
+                                <option value="shop">Apenas Shop</option>
+                                <option value="portfolio">Apenas Portfolio</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group full-width">
+                            <label>Descricao</label>
+                            <textarea id="categoryDescription" rows="2" placeholder="Descricao breve da categoria..."></textarea>
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="button" class="admin-btn admin-btn-cancel" onclick="closeCategoryForm()">Cancelar</button>
+                        <button type="submit" class="admin-btn admin-btn-save">
+                            <i class="ri-save-line"></i> Salvar Categoria
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="admin-overlay" id="adminOverlay" onclick="closeProductForm(); closeFilesManager(); closePortfolioForm(); closeSlideForm(); closeCategoryForm();"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 WGDsign Studio. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/admin.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initAdminPanel();
+    });
+    </script>
+</body>
+</html>

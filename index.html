@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WGDsign Studio - Designer Especialista em MMO RPG | Templates, Launchers, Logos, Banners</title>
+    <meta name="description" content="Portfolio profissional de design especializado em jogos RPG Online, focado no universo MuOnline. Templates, Launchers, Logos e materiais graficos exclusivos.">
+    <meta name="keywords" content="mu online design, mu online template, wgdsign, wgdesign, launcher mu online, logo mu online, design mmorpg, designer games, psd mu online">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+
+    <link rel="icon" href="./assets/img/fav-logo/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/fav-logo/favicon.png" />
+
+
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img class="logo-icon" src="./assets/img/fav-logo/logowg.png" alt="@wg.dsign">
+                <span class="logo-text">WGDS Studio</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+                <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a>
+                <a href="#shop" class="nav-link" data-i18n="nav.shop">Shop</a>
+                <div class="nav-dropdown">
+                    <a href="#servicos" class="nav-link nav-dropdown-trigger" data-i18n="nav.services">
+                        Servicos
+                        <i class="ri-arrow-down-s-line"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="pages/muonline.html" class="dropdown-item">
+                            <i class="ri-gamepad-line"></i>
+                            <span>MuOnline</span>
+                        </a>
+                        <a href="pages/launchers.html" class="dropdown-item">
+                            <i class="ri-rocket-2-line"></i>
+                            <span>Game Launcher</span>
+                        </a>
+                        <a href="pages/templates.html" class="dropdown-item">
+                            <i class="ri-layout-4-line"></i>
+                            <span>Templates</span>
+                        </a>
+                        <a href="pages/logos.html" class="dropdown-item">
+                            <i class="ri-pen-nib-line"></i>
+                            <span>Logotipo</span>
+                        </a>
+                        <a href="pages/banners.html" class="dropdown-item">
+                            <i class="ri-image-line"></i>
+                            <span>Banners</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a>
+            </div>
+            <div class="nav-actions">
+                <button class="auth-btn" id="authBtn" onclick="openAuthModal()">
+                    <i class="ri-user-line"></i>
+                    <span class="auth-btn-name">Entrar</span>
+                </button>
+                <div class="language-selector" id="languageSelector">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <img src="assets/img/flags/br.svg" alt="PT-BR" class="flag-icon" id="currentFlag">
+                        <span id="currentLang">PT-BR</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" onclick="changeLanguage('pt-BR')">
+                            <img src="assets/img/flags/br.svg" alt="Brasil">
+                            <span>PT-BR</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('en-US')">
+                            <img src="assets/img/flags/us.svg" alt="USA">
+                            <span>EN-US</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es-ES')">
+                            <img src="assets/img/flags/es.svg" alt="Espana">
+                            <span>Espanol</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="nav-cta" data-i18n="nav.quote">Orcamento</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-carousel-bg" id="heroCarouselBg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content" id="heroContent">
+            <div class="hero-badge">
+                <i class="ri-verified-badge-fill"></i>
+                <span id="heroTag" data-i18n="hero.badge">Especialista em RPG Online</span>
+            </div>
+            <h1 class="hero-title">
+                <span id="heroTitle" data-i18n="hero.title1">Design Profissional para</span>
+                <span class="gradient-text" id="heroSubtitle" data-i18n="hero.title2">Servidores RPG Online</span>
+            </h1>
+            <p class="hero-description" id="heroDescription" data-i18n="hero.description">
+                Transformo sua visao em realidade digital. Templates, Launchers, Logos e materiais 
+                graficos exclusivos para destacar seu servidor no universo MuOnline.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">5.000+</span>
+                    <span class="stat-label" data-i18n="hero.projects">Projetos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label" data-i18n="hero.satisfaction">Satisfacao</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label" data-i18n="hero.experience">Anos Exp.</span>
+                </div>
+            </div>
+            <div class="hero-cta" id="heroCta">
+                <a href="#shop" class="btn btn-primary">
+                    <i class="ri-shopping-bag-3-line"></i>
+                    <span data-i18n="hero.viewProducts">Ver Produtos</span>
+                </a>
+                <a href="#portfolio" class="btn btn-secondary">
+                    <i class="ri-gallery-line"></i>
+                    <span data-i18n="hero.portfolio">Portfolio</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-showcase" id="heroShowcase">
+                <img src="assets/img/hero/slide3.jpg" alt="Showcase Design" class="showcase-main">
+                <div class="showcase-float showcase-1">
+                    <img src="assets/img/hero/slide1.jpg" alt="Design 1">
+                </div>
+                <div class="showcase-float showcase-2">
+                    <img src="assets/img/hero/slide2.jpg" alt="Design 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="portfolio.badge">Portfolio</span>
+                <h2 class="section-title" data-i18n="portfolio.title">Trabalhos em Destaque</h2>
+                <p class="section-description" data-i18n="portfolio.description">Confira alguns dos meus melhores projetos para servidores</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Todos</button>
+                <button class="filter-btn" data-filter="templates" data-i18n="filter.templates">Templates</button>
+                <button class="filter-btn" data-filter="launchers" data-i18n="filter.launchers">Launchers</button>
+                <button class="filter-btn" data-filter="logos" data-i18n="filter.logos">Logos</button>
+                <button class="filter-btn" data-filter="banners" data-i18n="filter.banners">Banners</button>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid"></div>
+        </div>
+    </section>
+
+    <section id="slider" class="slider-section">
+        <div class="slider-container">
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slide active">
+                    <div class="slide-bg" style="background-image: url('assets/img/slides/side1.png');"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">
+                            <i class="ri-vip-crown-line"></i>
+                            <span data-i18n="slider.exclusive">Exclusivo</span>
+                        </div>
+                        <h2 data-i18n="slider.title1">Beneficios exclusivos para novos membros!</h2>
+                        <p data-i18n="slider.desc1">Junte-se ao nosso grupo no WhatsApp e receba em primeira mão os novos lancamentos, alem de ofertas especiais para membros do grupo.</p>
+                        <a href="https://chat.whatsapp.com/grupoaqui" target="_blank" class="btn btn-primary">
+                            <i class="ri-whatsapp-line"></i>
+                            <span data-i18n="slider.btn1">Entrar no Grupo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-bg" style="background-image: url('assets/img/slides/side2.png');"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">
+                            <i class="ri-fire-line"></i>
+                            <span data-i18n="slider.new">Novidade</span>
+                        </div>
+                        <h2 data-i18n="slider.title2">Novos Design de Launchers Disponiveis!</h2>
+                        <p data-i18n="slider.desc2">Confira a nova colecao de launchers profissionais para Servidores. Designs modernos e impactantes para destacar seu servidor.</p>
+                        <a href="#shop" class="btn btn-primary">
+                            <i class="ri-shopping-bag-3-line"></i>
+                            <span data-i18n="slider.btn2">Ver Produtos</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-bg" style="background-image: url('assets/img/slides/side3.png');"></div>
+                    <div class="slide-content">
+                        <div class="slide-badge">
+                            <i class="ri-percent-line"></i>
+                            <span data-i18n="slider.promo">Promocao</span>
+                        </div>
+                        <h2 data-i18n="slider.title3">Templates Exclusivos com até 20% OFF!</h2>
+                        <p data-i18n="slider.desc3">Aproveite nossas promocões especial em temas para MuOnline. Ofertas por tempo limitado!</p>
+                        <a href="#shop" class="btn btn-primary">
+                            <i class="ri-gift-line"></i>
+                            <span data-i18n="slider.btn3">Aproveitar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-navigation">
+                <button class="slider-btn slider-prev" id="sliderPrev">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <div class="slider-indicators" id="sliderIndicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                </div>
+                <button class="slider-btn slider-next" id="sliderNext">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="shop-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="shop.badge">Loja</span>
+                <h2 class="section-title" data-i18n="shop.title">Produtos Disponiveis</h2>
+                <p class="section-description" data-i18n="shop.description">Adquira templates e materiais prontos para uso</p>
+            </div>
+            <div class="shop-filters">
+                <button class="shop-filter-btn active" data-filter="all" data-i18n="filter.all">Todos</button>
+                <button class="shop-filter-btn" data-filter="templates" data-i18n="filter.templates">Templates</button>
+                <button class="shop-filter-btn" data-filter="launchers" data-i18n="filter.launchers">Launchers</button>
+                <button class="shop-filter-btn" data-filter="logos" data-i18n="filter.logos">Logos</button>
+                <button class="shop-filter-btn" data-filter="banners" data-i18n="filter.banners">Banners</button>
+            </div>
+            <div class="shop-grid" id="shopGrid"></div>
+        </div>
+    </section>
+
+    <section id="servicos" class="services-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="services.badge">Servicos</span>
+                <h2 class="section-title" data-i18n="services.title">O Que Ofereco</h2>
+                <p class="section-description" data-i18n="services.description">Solucoes completas em design para seu servidor MuOnline</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-layout-4-line"></i>
+                    </div>
+                    <h3 data-i18n="services.templates">Templates Web</h3>
+                    <p data-i18n="services.templatesDesc">Layouts modernos e responsivos para sites de servidores MuOnline</p>
+                    <ul class="service-features">
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.responsive">Design Responsivo</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.psd">PSD Editavel</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.support">Suporte Incluso</span></li>
+                    </ul>
+                </div>
+                <div class="service-card featured">
+                    <div class="service-badge" data-i18n="services.popular">Mais Popular</div>
+                    <div class="service-icon">
+                        <i class="ri-rocket-2-line"></i>
+                    </div>
+                    <h3 data-i18n="services.launchers">Launchers</h3>
+                    <p data-i18n="services.launchersDesc">Interfaces de launcher profissionais e funcionais</p>
+                    <ul class="service-features">
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.exclusive">Design Exclusivo</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.buttons">Botoes Funcionais</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.news">Area de Noticias</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-pen-nib-line"></i>
+                    </div>
+                    <h3 data-i18n="services.logos">Logos & Identidade</h3>
+                    <p data-i18n="services.logosDesc">Criacao de logos e identidade visual para seu servidor</p>
+                    <ul class="service-features">
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.customLogo">Logo Personalizada</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.vector">Arquivos PSD Edit</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.variations">Variacoes Com Icones</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-image-line"></i>
+                    </div>
+                    <h3 data-i18n="services.banners">Banners & Social</h3>
+                    <p data-i18n="services.bannersDesc">Materiais para redes sociais e divulgacão</p>
+                    <ul class="service-features">
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.posts">Posts para Redes</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.promo">Banners Promocionais</span></li>
+                        <li><i class="ri-check-line"></i> <span data-i18n="services.formats">Formatos Variados</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="testimonials.badge">Depoimentos</span>
+                <h2 class="section-title" data-i18n="testimonials.title">O Que Dizem Nossos Clientes</h2>
+                <p class="section-description" data-i18n="testimonials.description">Veja o feedback de quem ja utilizou nossos servicos</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Excelente trabalho! O launcher ficou incrivel e meu servidor ganhou uma cara profissional. Recomendo demais!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Cliente Name</span>
+                            <span class="author-role">Mu Online</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Designer muito profissional, entendeu exatamente o que eu queria. O template do meu site ficou perfeito!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Cliente Name</span>
+                            <span class="author-role">Mu Online</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-half-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Rapido, eficiente e com otimo preco. Ja comprei varios materiais e sempre fico satisfeito com a qualidade."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Cliente Name</span>
+                            <span class="author-role">Mu Online</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="testimonial-text">"Os banners para redes sociais ficaram incriveis! Ajudaram muito na divulgacao do meu servidor. Top demais!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Cliente Name</span>
+                            <span class="author-role">Mu Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+        <div class="section-container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="section-badge" data-i18n="contact.badge">Contato</span>
+                    <h2 class="section-title" data-i18n="contact.title">Vamos Conversar</h2>
+                    <p class="contact-description" data-i18n="contact.description">
+                        Tem um projeto em mente? Entre em contato para um orcamento personalizado.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="https://wa.me/5511930926706" class="contact-method" target="_blank">
+                            <div class="method-icon">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">WhatsApp</span>
+                                <span class="method-value">+55 (11) 93092-6706</span>
+                            </div>
+                        </a>
+                        <a href="mailto:contato@mudesign.com" class="contact-method">
+                            <div class="method-icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">wgdsign@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://discord.gg/mudesign" class="contact-method" target="_blank">
+                            <div class="method-icon">
+                                <i class="ri-discord-line"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Discord</span>
+                                <span class="method-value">WGDesigner</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/wg.dsign/" class="social-link"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social-link"><i class="ri-facebook-line"></i></a>
+                        <a href="https://www.behance.net/wtiagencia" class="social-link"><i class="ri-behance-line"></i></a>
+                        <a href="https://www.youtube.com/@wgdsign/videos" class="social-link"><i class="ri-youtube-line"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Seu Nome" required>
+                            <label for="name" data-i18n="contact.name">Nome</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Seu Email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="" data-i18n="contact.selectService">Selecione o Servico</option>
+                                <option value="template">Template Web</option>
+                                <option value="launcher">Launcher</option>
+                                <option value="logo">Logo & Identidade</option>
+                                <option value="banner">Banners & Social</option>
+                                <option value="outro" data-i18n="contact.other">Outro</option>
+                            </select>
+                            <label for="service" data-i18n="contact.service">Servico</label>
+                        </div>
+                        <div class="form-group full">
+                            <textarea id="message" placeholder="Descreva seu projeto" rows="4" required></textarea>
+                            <label for="message" data-i18n="contact.message">Mensagem</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="ri-send-plane-line"></i>
+                            <span data-i18n="contact.send">Enviar Mensagem</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img class="logo-icon" src="./assets/img/fav-logo/logowg.png" alt="@wg.dsign">
+                        <span class="logo-text">WG Studio</span>
+                    </a>
+                    <p data-i18n="footer.description">Especialista em design para servidores MMO RPG Online desde 2021.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.links">Links</h4>
+                        <a href="#home" data-i18n="nav.home">Home</a>
+                        <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
+                        <a href="#shop" data-i18n="nav.shop">Loja</a>
+                        <a href="#contato" data-i18n="nav.contact">Contato</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.services">Servicos</h4>
+                        <a href="pages/templates.html">Templates</a>
+                        <a href="pages/launchers.html">Launchers</a>
+                        <a href="pages/logos.html">Logos</a>
+                        <a href="pages/banners.html">Banners</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legal">Legal</h4>
+                        <a href="#" data-i18n="footer.terms">Termos de Uso</a>
+                        <a href="#" data-i18n="footer.privacy">Privacidade</a>
+                        <a href="#" data-i18n="footer.refund">Reembolso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WGDsign Studio. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+                <div class="payment-methods">
+                    <span data-i18n="footer.payment">Formas de Pagamento:</span>
+                    <i class="ri-bank-card-line"></i>
+                    <span>PIX</span>
+                    <span>Mercado Pago</span>
+                    <span>PayPal</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="ri-shopping-cart-2-line"></i> <span data-i18n="cart.title">Carrinho</span></h3>
+            <button class="cart-close" id="cartClose">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="ri-shopping-cart-line"></i>
+                <p data-i18n="cart.empty">Seu carrinho esta vazio</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span data-i18n="cart.total">Total:</span>
+                <span class="total-value" id="cartTotal">R$ 0,00</span>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="openCheckout()">
+                <i class="ri-secure-payment-line"></i>
+                <span data-i18n="cart.checkout">Finalizar Compra</span>
+            </button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2><i class="ri-secure-payment-line"></i> <span data-i18n="checkout.title">Finalizar Compra</span></h2>
+                <button class="checkout-close" onclick="closeCheckout()">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary">
+                    <h3 data-i18n="checkout.summary">Resumo do Pedido</h3>
+                    <div class="summary-items" id="summaryItems"></div>
+                    <div class="summary-total">
+                        <span data-i18n="cart.total">Total:</span>
+                        <span id="summaryTotal">R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="checkout-form">
+                    <h3 data-i18n="checkout.customerData">Dados do Cliente</h3>
+                    <form id="checkoutForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="checkoutName" placeholder="Nome Completo" required>
+                                <label data-i18n="checkout.fullName">Nome Completo</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="checkoutEmail" placeholder="Email" required>
+                                <label>Email</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="checkoutPhone" placeholder="WhatsApp" required>
+                                <label>WhatsApp</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="checkoutCpf" placeholder="CPF" required>
+                                <label>CPF</label>
+                            </div>
+                        </div>
+                        <h3 data-i18n="checkout.paymentMethod">Forma de Pagamento</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="pix" checked>
+                                <div class="payment-card">
+                                    <i class="ri-qr-code-line"></i>
+                                    <span>PIX</span>
+                                    <small data-i18n="checkout.instant">Aprovacao instantanea</small>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="mercadopago">
+                                <div class="payment-card">
+                                    <i class="ri-bank-card-line"></i>
+                                    <span>Mercado Pago</span>
+                                    <small data-i18n="checkout.cardOrBalance">Cartao ou saldo</small>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="boleto">
+                                <div class="payment-card">
+                                    <i class="ri-file-text-line"></i>
+                                    <span>Boleto</span>
+                                    <small data-i18n="checkout.upTo3Days">Ate 3 dias uteis</small>
+                                </div>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">
+                            <i class="ri-lock-line"></i>
+                            <span data-i18n="checkout.payNow">Pagar Agora</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-overlay" id="checkoutOverlay"></div>
+
+    <div class="preview-modal" id="previewModal">
+        <button class="preview-close" onclick="closePreview()">
+            <i class="ri-close-line"></i>
+        </button>
+        <img src="" alt="Preview" id="previewImage">
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/mercadopago.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

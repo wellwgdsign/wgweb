@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banners - MuDesign Studio | Banners Profissionais para MuOnline</title>
+    <meta name="description" content="Banners profissionais para servidores MuOnline. Materiais para redes sociais e divulgacao.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-icon">MU</span><span class="logo-text">Design Studio</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#shop" class="nav-link">Shop</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-trigger active">Servicos <i class="ri-arrow-down-s-line"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="muonline.html" class="dropdown-item"><i class="ri-gamepad-line"></i><span>MuOnline</span></a>
+                        <a href="launchers.html" class="dropdown-item"><i class="ri-rocket-2-line"></i><span>Game Launcher</span></a>
+                        <a href="templates.html" class="dropdown-item"><i class="ri-layout-4-line"></i><span>Templates</span></a>
+                        <a href="logos.html" class="dropdown-item"><i class="ri-pen-nib-line"></i><span>Logotipo</span></a>
+                        <a href="banners.html" class="dropdown-item active"><i class="ri-image-line"></i><span>Banners</span></a>
+                    </div>
+                </div>
+                <a href="../index.html#contato" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-actions">
+                <div class="language-selector" id="languageSelector">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()"><img src="../assets/img/flags/br.png" alt="PT-BR" class="flag-icon" id="currentFlag"><span id="currentLang">PT-BR</span><i class="ri-arrow-down-s-line"></i></button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" onclick="changeLanguage('pt-BR')"><img src="../assets/img/flags/br.png" alt="Brasil"><span>PT-BR</span></div>
+                        <div class="language-option" onclick="changeLanguage('en-US')"><img src="../assets/img/flags/us.png" alt="USA"><span>EN-US</span></div>
+                        <div class="language-option" onclick="changeLanguage('es-ES')"><img src="../assets/img/flags/es.png" alt="Espana"><span>Espanol</span></div>
+                    </div>
+                </div>
+                <button class="cart-btn" id="cartBtn"><i class="ri-shopping-cart-2-line"></i><span class="cart-count" id="cartCount">0</span></button>
+                <a href="../index.html#contato" class="nav-cta">Orcamento</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-bg"><div class="hero-particles"></div></div>
+        <div class="page-hero-content">
+            <div class="breadcrumb"><a href="../index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Banners</span></div>
+            <h1 class="page-title"><i class="ri-image-line"></i>Banners & Social</h1>
+            <p class="page-description">Banners profissionais para servidores MuOnline. Materiais para redes sociais, divulgacao e promocoes.</p>
+        </div>
+    </section>
+
+    <section class="recent-works">
+        <div class="section-container">
+            <div class="section-header"><span class="section-badge">Trabalhos Recentes</span><h2 class="section-title">Ultimos Banners Criados</h2></div>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-image"><img src="../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg" alt="Banner Pack"><div class="work-overlay"><button class="action-btn" onclick="openPreview('../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg')"><i class="ri-zoom-in-line"></i></button></div></div>
+                    <div class="work-info"><h3>Pack 4 Banners Premium</h3><span>Banner Pack</span></div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image"><img src="../index-portfólio_files/Flyer-social-media-mu-online-banner-card.jpg" alt="Banner Pack 6"><div class="work-overlay"><button class="action-btn" onclick="openPreview('../index-portfólio_files/Flyer-social-media-mu-online-banner-card.jpg')"><i class="ri-zoom-in-line"></i></button></div></div>
+                    <div class="work-info"><h3>Pack 6 Banners Social</h3><span>Banner Pack</span></div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image"><img src="../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg" alt="Banner Evento"><div class="work-overlay"><button class="action-btn" onclick="openPreview('../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg')"><i class="ri-zoom-in-line"></i></button></div></div>
+                    <div class="work-info"><h3>Banner Evento Castle</h3><span>Banner</span></div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image"><img src="../index-portfólio_files/Flyer-social-media-mu-online-banner-card.jpg" alt="Banner Promo"><div class="work-overlay"><button class="action-btn" onclick="openPreview('../index-portfólio_files/Flyer-social-media-mu-online-banner-card.jpg')"><i class="ri-zoom-in-line"></i></button></div></div>
+                    <div class="work-info"><h3>Banner Promocional</h3><span>Banner</span></div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image"><img src="../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg" alt="Banner Launch"><div class="work-overlay"><button class="action-btn" onclick="openPreview('../index-portfólio_files/Flyer-social-exclusivo-media-mu-online-banner-card.jpg')"><i class="ri-zoom-in-line"></i></button></div></div>
+                    <div class="work-info"><h3>Banner Lancamento</h3><span>Banner</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-products">
+        <div class="section-container">
+            <div class="section-header"><span class="section-badge">Loja</span><h2 class="section-title">Banners Disponiveis</h2><p class="section-description">Adquira banners prontos para uso em seu servidor</p></div>
+            <div class="products-grid" data-category="banners"></div>
+            <div class="view-all-container"><a href="../index.html#shop" class="btn btn-secondary"><i class="ri-shopping-bag-3-line"></i> Ver Todos os Produtos</a></div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2>Precisa de Banners Personalizados?</h2>
+                <p>Entre em contato para um orcamento exclusivo para seu servidor</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5581973144131" target="_blank" class="btn btn-primary"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+                    <a href="../index.html#contato" class="btn btn-secondary"><i class="ri-mail-line"></i> Formulario</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand"><a href="../index.html" class="logo"><span class="logo-icon">MU</span><span class="logo-text">Design Studio</span></a><p>Especialista em design para servidores MuOnline desde 2019.</p></div>
+                <div class="footer-links">
+                    <div class="footer-column"><h4>Links</h4><a href="../index.html">Home</a><a href="../index.html#portfolio">Portfolio</a><a href="../index.html#shop">Shop</a><a href="../index.html#contato">Contato</a></div>
+                    <div class="footer-column"><h4>Servicos</h4><a href="templates.html">Templates</a><a href="launchers.html">Launchers</a><a href="logos.html">Logos</a><a href="banners.html">Banners</a></div>
+                    <div class="footer-column"><h4>Legal</h4><a href="#">Termos de Uso</a><a href="#">Privacidade</a><a href="#">Reembolso</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 MuDesign Studio. Todos os direitos reservados.</p><div class="payment-methods"><span>Formas de Pagamento:</span><i class="ri-bank-card-line"></i><span>PIX</span><span>Mercado Pago</span><span>Boleto</span></div></div>
+        </div>
+    </footer>
+
+    <div class="cart-sidebar" id="cartSidebar"><div class="cart-header"><h3><i class="ri-shopping-cart-2-line"></i> Carrinho</h3><button class="cart-close" id="cartClose"><i class="ri-close-line"></i></button></div><div class="cart-items" id="cartItems"><div class="cart-empty"><i class="ri-shopping-cart-line"></i><p>Seu carrinho esta vazio</p></div></div><div class="cart-footer" id="cartFooter" style="display: none;"><div class="cart-total"><span>Total:</span><span class="total-value" id="cartTotal">R$ 0,00</span></div><button class="btn btn-primary btn-full" onclick="openCheckout()"><i class="ri-secure-payment-line"></i> Finalizar Compra</button></div></div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="preview-modal" id="previewModal"><button class="preview-close" onclick="closePreview()"><i class="ri-close-line"></i></button><img src="" alt="Preview" id="previewImage"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../assets/js/i18n.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/mercadopago.js"></script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel - WGDS Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="icon" href="../assets/img/fav-logo/favicon.png" type="image/x-icon" />
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-icon" src="../assets/img/fav-logo/logowg.png" alt="@wg.dsign">
+                <span class="logo-text">WGDS Studio</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#shop" class="nav-link">Shop</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-trigger">
+                        Servicos <i class="ri-arrow-down-s-line"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="muonline.html" class="dropdown-item"><i class="ri-gamepad-line"></i><span>MuOnline</span></a>
+                        <a href="launchers.html" class="dropdown-item"><i class="ri-rocket-2-line"></i><span>Game Launcher</span></a>
+                        <a href="templates.html" class="dropdown-item"><i class="ri-layout-4-line"></i><span>Templates</span></a>
+                        <a href="logos.html" class="dropdown-item"><i class="ri-pen-nib-line"></i><span>Logotipo</span></a>
+                        <a href="banners.html" class="dropdown-item"><i class="ri-image-line"></i><span>Banners</span></a>
+                    </div>
+                </div>
+                <a href="../index.html#contato" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-actions">
+                <button class="auth-btn logged-in" id="authBtn">
+                    <i class="ri-user-line"></i>
+                    <span class="auth-btn-name">Painel</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="painel-bg" id="painelBg"></div>
+
+        <div class="painel-container">
+            <div class="painel-nav-wrapper">
+                <div class="painel-nav">
+                    <button class="painel-nav-btn active" data-tab="visao-geral">
+                        <i class="ri-dashboard-line"></i>
+                        <span>Visao Geral</span>
+                    </button>
+                    <button class="painel-nav-btn" data-tab="compras">
+                        <i class="ri-shopping-bag-3-line"></i>
+                        <span>Compras</span>
+                    </button>
+                    <button class="painel-nav-btn" data-tab="downloads">
+                        <i class="ri-download-cloud-line"></i>
+                        <span>Downloads</span>
+                    </button>
+                    <button class="painel-nav-btn" data-tab="perfil">
+                        <i class="ri-user-line"></i>
+                        <span>Perfil</span>
+                    </button>
+                    <button class="painel-nav-btn painel-admin-btn" data-tab="admin" id="btnAdmin" style="display:none;">
+                        <i class="ri-shield-user-line"></i>
+                        <span>Admin</span>
+                    </button>
+                    <button class="painel-nav-btn" data-tab="logout" id="btnLogout">
+                        <i class="ri-logout-box-r-line"></i>
+                        <span>Sair</span>
+                    </button>
+                    <button class="painel-mobile-toggle" id="painelMobileToggle">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB: VISAO GERAL -->
+            <div class="painel-tab active" id="tab-visao-geral">
+                <div class="painel-grid">
+                    <div class="painel-card">
+                        <div class="painel-card-header">
+                            <div class="panel-text-new">
+                                <span class="text-panel-titulo">Total gasto na loja</span>
+                                <i class="ri-money-dollar-circle-line"></i>
+                            </div>
+                        </div>
+                        <div class="painel-total-wrapper">
+                            <div class="painel-total-value">
+                                <span class="valor-moeda" id="totalGasto">R$ 0,00</span>
+                            </div>
+                            <div class="painel-benefits">
+                                <span class="painel-member-badge" id="memberBadge">Starter</span>
+                                <div class="nivel-progress-container">
+                                    <div class="nivel-badges-wrapper">
+                                        <div class="nivel-badge-item">
+                                            <div class="nivel-badge-icon active current">
+                                                <i class="ri-user-line"></i>
+                                            </div>
+                                            <small class="nivel-badge-text active">Starter<br><span class="nivel-desconto">+0%</span></small>
+                                        </div>
+                                        <div class="nivel-badge-item">
+                                            <div class="nivel-badge-icon inactive">
+                                                <i class="ri-repeat-line"></i>
+                                            </div>
+                                            <small class="nivel-badge-text">Bronze<br><span class="nivel-desconto">+5% OFF</span></small>
+                                        </div>
+                                        <div class="nivel-badge-item">
+                                            <div class="nivel-badge-icon inactive">
+                                                <i class="ri-heart-line"></i>
+                                            </div>
+                                            <small class="nivel-badge-text">Prata<br><span class="nivel-desconto">+10% OFF</span></small>
+                                        </div>
+                                        <div class="nivel-badge-item">
+                                            <div class="nivel-badge-icon inactive">
+                                                <i class="ri-star-line"></i>
+                                            </div>
+                                            <small class="nivel-badge-text">Ouro<br><span class="nivel-desconto">+15% OFF</span></small>
+                                        </div>
+                                        <div class="nivel-badge-item">
+                                            <div class="nivel-badge-icon inactive">
+                                                <i class="ri-vip-crown-line"></i>
+                                            </div>
+                                            <small class="nivel-badge-text">Diamante<br><span class="nivel-desconto">+25% OFF</span></small>
+                                        </div>
+                                    </div>
+                                    <small class="nivel-progress-text" id="nivelProgressText">Faltam R$ 100,00 para se tornar Membro Bronze</small>
+                                    <div class="nivel-progress-bar">
+                                        <div class="nivel-progress-fill" id="nivelProgressFill" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="painel-card">
+                        <div class="painel-card-header">
+                            <div class="panel-text-new">
+                                <span class="text-panel-titulo">Sua Ultima compra</span>
+                                <i class="ri-shopping-cart-line"></i>
+                            </div>
+                        </div>
+                        <div id="ultimaCompra">
+                            <div class="painel-empty-state">
+                                <i class="ri-inbox-line"></i>
+                                <p>Nenhuma compra realizada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: COMPRAS -->
+            <div class="painel-tab" id="tab-compras">
+                <h2 class="painel-section-title">Historico de Compras</h2>
+                <div id="purchaseList">
+                    <div class="painel-empty-state">
+                        <i class="ri-inbox-line"></i>
+                        <p>Nenhuma compra encontrada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: DOWNLOADS -->
+            <div class="painel-tab" id="tab-downloads">
+                <h2 class="painel-section-title">Area de Downloads</h2>
+                <div id="downloadsGrid" class="painel-downloads-grid">
+                    <div class="painel-empty-state">
+                        <i class="ri-download-cloud-line"></i>
+                        <p>Nenhum download disponivel</p>
+                        <a href="../index.html#shop" class="btn-shop-link">
+                            <i class="ri-shopping-bag-3-line" style="color: #000000;"></i> Ir para a Loja
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: PERFIL -->
+            <div class="painel-tab" id="tab-perfil">
+                <div class="painel-content-box">
+                    <div class="painel-profile">
+                        <div class="painel-profile-header">
+                            <div class="painel-avatar" id="panelAvatar">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <div class="painel-profile-info">
+                                <h2 id="panelUserName">Carregando...</h2>
+                                <span class="painel-member-type" id="panelMemberType">Starter</span>
+                            </div>
+                        </div>
+                        <div class="painel-profile-details">
+                            <div class="painel-detail-row">
+                                <span>E-mail:</span>
+                                <span id="panelUserEmail">...</span>
+                            </div>
+                            <div class="painel-detail-row">
+                                <span>Provedor:</span>
+                                <span id="panelProvider">...</span>
+                            </div>
+                            <div class="painel-detail-row">
+                                <span>Data de Cadastro:</span>
+                                <span id="panelSince">...</span>
+                            </div>
+                            <div class="painel-detail-row">
+                                <span>Total de Pedidos:</span>
+                                <span id="panelTotalPedidos">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 WGDsign Studio. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const user = JSON.parse(localStorage.getItem('wgdsign_user'));
+
+        if (!user) {
+            window.location.href = '../index.html';
+            return;
+        }
+
+        document.getElementById('panelUserName').textContent = user.name;
+        document.getElementById('panelUserEmail').textContent = user.email;
+
+        const providerNames = {
+            'google.com': 'Google',
+            'email': 'Email/Senha',
+            'password': 'Email/Senha'
+        };
+        document.getElementById('panelProvider').textContent = providerNames[user.provider] || user.provider;
+
+        var adminEmails = ['admin@wgdsign.com', 'wgdsign@gmail.com'];
+        if (adminEmails.includes(user.email.toLowerCase())) {
+            var adminBtn = document.getElementById('btnAdmin');
+            if (adminBtn) adminBtn.style.display = 'flex';
+        }
+
+        const createdAt = user.createdAt || localStorage.getItem('wgdsign_member_since_' + user.uid);
+        if (createdAt) {
+            document.getElementById('panelSince').textContent = new Date(createdAt).toLocaleDateString('pt-BR');
+        } else {
+            const now = new Date().toISOString();
+            localStorage.setItem('wgdsign_member_since_' + user.uid, now);
+            document.getElementById('panelSince').textContent = new Date(now).toLocaleDateString('pt-BR');
+        }
+
+        const avatar = document.getElementById('panelAvatar');
+        if (user.avatar) {
+            avatar.innerHTML = '<img src="' + user.avatar + '" alt="' + user.name + '">';
+            const bg = document.getElementById('painelBg');
+            if (bg) bg.style.backgroundImage = "url('" + user.avatar + "')";
+        }
+
+        const authBtn = document.getElementById('authBtn');
+        if (authBtn) {
+            const avatarHTML = user.avatar
+                ? '<img src="' + user.avatar + '" alt="' + user.name + '" class="user-avatar-small">'
+                : '<i class="ri-user-line"></i>';
+            authBtn.innerHTML = avatarHTML + ' <span class="auth-btn-name">' + user.name.split(' ')[0] + '</span>';
+        }
+
+        loadOverview();
+        loadPurchases();
+        loadDownloads();
+        initPanelTabs();
+    });
+
+    function initPanelTabs() {
+        const navBtns = document.querySelectorAll('.painel-nav-btn');
+        const mobileToggle = document.getElementById('painelMobileToggle');
+        const nav = document.querySelector('.painel-nav');
+
+        navBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const tab = this.dataset.tab;
+
+                if (tab === 'logout') {
+                    logoutUser();
+                    return;
+                }
+
+                if (tab === 'admin') {
+                    window.location.href = 'admin.html';
+                    return;
+                }
+
+                navBtns.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+
+                document.querySelectorAll('.painel-tab').forEach(function(t) { t.classList.remove('active'); });
+                var target = document.getElementById('tab-' + tab);
+                if (target) target.classList.add('active');
+
+                if (nav.classList.contains('open')) nav.classList.remove('open');
+            });
+        });
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                nav.classList.toggle('open');
+            });
+        }
+    }
+
+    function loadOverview() {
+        const user = JSON.parse(localStorage.getItem('wgdsign_user'));
+        if (!user) return;
+
+        const purchases = JSON.parse(localStorage.getItem('wgdsign_purchases_' + user.uid) || '[]');
+        var total = 0;
+        purchases.forEach(function(p) { total += p.total || 0; });
+
+        document.getElementById('totalGasto').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+        document.getElementById('panelTotalPedidos').textContent = purchases.length;
+
+        var niveis = [
+            { nome: 'Starter', min: 0 },
+            { nome: 'Bronze', min: 100 },
+            { nome: 'Prata', min: 250 },
+            { nome: 'Ouro', min: 400 },
+            { nome: 'Diamante', min: 600 }
+        ];
+
+        var nivelAtual = 0;
+        for (var i = niveis.length - 1; i >= 0; i--) {
+            if (total >= niveis[i].min) {
+                nivelAtual = i;
+                break;
+            }
+        }
+
+        document.getElementById('memberBadge').textContent = niveis[nivelAtual].nome;
+        document.getElementById('panelMemberType').textContent = niveis[nivelAtual].nome;
+
+        var badges = document.querySelectorAll('.nivel-badge-icon');
+        var texts = document.querySelectorAll('.nivel-badge-text');
+        badges.forEach(function(b, idx) {
+            b.classList.remove('active', 'current', 'inactive', 'completed');
+            texts[idx].classList.remove('active', 'completed');
+            if (idx < nivelAtual) {
+                b.classList.add('completed');
+                texts[idx].classList.add('completed');
+            } else if (idx === nivelAtual) {
+                b.classList.add('active', 'current');
+                texts[idx].classList.add('active');
+            } else {
+                b.classList.add('inactive');
+            }
+        });
+
+        if (nivelAtual < niveis.length - 1) {
+            var nextMin = niveis[nivelAtual + 1].min;
+            var currentMin = niveis[nivelAtual].min;
+            var progress = ((total - currentMin) / (nextMin - currentMin)) * 100;
+            document.getElementById('nivelProgressFill').style.width = Math.min(progress, 100) + '%';
+            document.getElementById('nivelProgressText').textContent =
+                'Faltam R$ ' + (nextMin - total).toFixed(2).replace('.', ',') + ' para ' + niveis[nivelAtual + 1].nome;
+        } else {
+            document.getElementById('nivelProgressFill').style.width = '100%';
+            document.getElementById('nivelProgressFill').classList.add('max-level');
+            document.getElementById('nivelProgressText').textContent = 'Nivel maximo alcancado!';
+            document.getElementById('nivelProgressText').classList.add('nivel-max');
+        }
+
+        if (purchases.length > 0) {
+            var last = purchases[0];
+            var date = new Date(last.date).toLocaleDateString('pt-BR');
+            var itemName = last.items[0] ? last.items[0].name : 'Produto';
+            var imgPath = last.items[0] && last.items[0].image ? (last.items[0].image.startsWith('../') ? last.items[0].image : '../' + last.items[0].image) : '';
+
+            document.getElementById('ultimaCompra').innerHTML =
+                '<div class="painel-purchase-wrapper">' +
+                    '<div class="painel-product-image">' +
+                        (imgPath ? '<img src="' + imgPath + '" alt="' + itemName + '">' : '') +
+                        '<div class="painel-purchase-info">' +
+                            '<a class="painel-product-name">' + itemName + '</a>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="painel-purchase-details">' +
+                        '<div class="painel-detail-row"><span>Data:</span><span>' + date + '</span></div>' +
+                        '<div class="painel-detail-row"><span>Total:</span><span class="valor-moeda">R$ ' + last.total.toFixed(2).replace('.', ',') + '</span></div>' +
+                        '<div class="painel-detail-row"><span>Status:</span><span class="painel-status status-concluido">Aprovado</span></div>' +
+                    '</div>' +
+                '</div>';
+        }
+    }
+
+    function loadPurchases() {
+        const user = JSON.parse(localStorage.getItem('wgdsign_user'));
+        if (!user) return;
+
+        const purchases = JSON.parse(localStorage.getItem('wgdsign_purchases_' + user.uid) || '[]');
+        const list = document.getElementById('purchaseList');
+        if (!list) return;
+
+        if (purchases.length === 0) {
+            list.innerHTML =
+                '<div class="painel-empty-state">' +
+                    '<i class="ri-inbox-line"></i>' +
+                    '<p>Nenhuma compra encontrada</p>' +
+                '</div>';
+            return;
+        }
+
+        var statusLabels = { approved: 'Aprovado', pending: 'Pendente' };
+        var statusClasses = { approved: 'status-concluido', pending: 'status-processando' };
+        var methodNames = { pix: 'PIX', mercadopago: 'Mercado Pago', boleto: 'Boleto' };
+
+        var html = '<div class="painel-purchases-list">';
+        purchases.forEach(function(purchase) {
+            var date = new Date(purchase.date).toLocaleDateString('pt-BR', {
+                day: '2-digit', month: '2-digit', year: 'numeric'
+            });
+
+            html += '<div class="painel-purchase-item">';
+            if (purchase.items[0]) {
+                var imgPath = purchase.items[0].image;
+                if (imgPath && !imgPath.startsWith('../')) imgPath = '../' + imgPath;
+                html += '<div class="painel-purchase-image"><img src="' + imgPath + '" alt="' + purchase.items[0].name + '"></div>';
+            }
+            html += '<div class="painel-purchase-content">';
+            html += '<a class="painel-purchase-title">' + (purchase.items[0] ? purchase.items[0].name : 'Produto') + '</a>';
+
+            var extraCount = purchase.items.length - 1;
+            if (extraCount > 0) {
+                html += '<span class="painel-purchase-extra">+' + extraCount + ' ite' + (extraCount > 1 ? 'ns' : 'm') + '</span>';
+            }
+
+            html += '<div class="painel-purchase-meta">';
+            html += '<span>' + date + '</span>';
+            html += '<span>' + (methodNames[purchase.paymentMethod] || purchase.paymentMethod) + '</span>';
+            html += '<span class="painel-status ' + (statusClasses[purchase.status] || '') + '">' + (statusLabels[purchase.status] || purchase.status) + '</span>';
+            html += '</div>';
+            html += '<span class="valor-moeda" style="font-size: 16px; font-weight: 500;">R$ ' + purchase.total.toFixed(2).replace('.', ',') + '</span>';
+            html += '</div></div>';
+        });
+        html += '</div>';
+        list.innerHTML = html;
+    }
+
+    function loadDownloads() {
+        const user = JSON.parse(localStorage.getItem('wgdsign_user'));
+        if (!user) return;
+
+        const downloads = JSON.parse(localStorage.getItem('wgdsign_downloads_' + user.uid) || '[]');
+        const grid = document.getElementById('downloadsGrid');
+        if (!grid) return;
+
+        if (downloads.length === 0) {
+            grid.innerHTML =
+                '<div class="painel-empty-state">' +
+                    '<i class="ri-download-cloud-line"></i>' +
+                    '<p>Nenhum download disponivel</p>' +
+                    '<a href="../index.html#shop" class="btn-shop-link"><i class="ri-shopping-bag-3-line" style="color: #000;"></i> Ir para a Loja</a>' +
+                '</div>';
+            return;
+        }
+
+        var html = '';
+        downloads.forEach(function(item, idx) {
+            var imgPath = item.image;
+            if (imgPath && !imgPath.startsWith('data:') && !imgPath.startsWith('http') && !imgPath.startsWith('../')) imgPath = '../' + imgPath;
+            var date = new Date(item.purchaseDate).toLocaleDateString('pt-BR');
+            var hasFiles = item.files && item.files.length > 0;
+            var fileCount = hasFiles ? item.files.length : (item.downloadUrl && item.downloadUrl !== '#' ? 1 : 0);
+
+            html += '<div class="painel-download-card">';
+            html += '<div class="painel-download-image"><img src="' + imgPath + '" alt="' + item.name + '">';
+            html += '<div class="painel-download-overlay">';
+            if (fileCount > 0) {
+                html += '<button class="btn-download" onclick="downloadProduct(' + idx + ')"><i class="ri-download-line"></i> Baixar (' + fileCount + ')</button>';
+            } else {
+                html += '<button class="btn-download" disabled style="opacity:0.5;cursor:not-allowed;"><i class="ri-time-line"></i> Em breve</button>';
+            }
+            html += '</div></div>';
+            html += '<div class="painel-download-info">';
+            html += '<h4>' + item.name + '</h4>';
+            html += '<span class="download-date">Comprado em ' + date + '</span>';
+            if (hasFiles) {
+                html += '<div class="download-files-list">';
+                item.files.forEach(function(f, fi) {
+                    html += '<span class="download-file-tag" onclick="downloadSingleFile(' + idx + ',' + fi + ')"><i class="ri-file-line"></i> ' + f.name + '</span>';
+                });
+                html += '</div>';
+            }
+            html += '</div></div>';
+        });
+        grid.innerHTML = html;
+    }
+
+    function downloadProduct(idx) {
+        var user = JSON.parse(localStorage.getItem('wgdsign_user'));
+        if (!user) return;
+        var downloads = JSON.parse(localStorage.getItem('wgdsign_downloads_' + user.uid) || '[]');
+        var item = downloads[idx];
+        if (!item) return;
+
+        if (item.files && item.files.length > 0) {
+            item.files.forEach(function(f) {
+                fetchAndDownload(f);
+            });
+        } else if (item.downloadUrl && item.downloadUrl !== '#') {
+            triggerDownload(item.downloadUrl, item.name);
+        } else {
+            showToast('Arquivo ainda nao disponivel.', 'error');
+            return;
+        }
+
+        item.downloaded = true;
+        localStorage.setItem('wgdsign_downloads_' + user.uid, JSON.stringify(downloads));
+        showToast('Download iniciado!', 'success');
+    }
+
+    function downloadSingleFile(idx, fileIdx) {
+        var user = JSON.parse(localStorage.getItem('wgdsign_user'));
+        if (!user) return;
+        var downloads = JSON.parse(localStorage.getItem('wgdsign_downloads_' + user.uid) || '[]');
+        var item = downloads[idx];
+        if (!item || !item.files || !item.files[fileIdx]) return;
+
+        var f = item.files[fileIdx];
+        fetchAndDownload(f);
+        showToast('Baixando ' + f.name + '...', 'success');
+    }
+
+    function fetchAndDownload(fileInfo) {
+        if (fileInfo.storedInIDB && fileInfo.id) {
+            var request = indexedDB.open('wgdsign_files_db', 1);
+            request.onsuccess = function(e) {
+                var db = e.target.result;
+                var tx = db.transaction('files', 'readonly');
+                var req = tx.objectStore('files').get(fileInfo.id);
+                req.onsuccess = function() {
+                    if (req.result && req.result.data) {
+                        triggerDownload(req.result.data, fileInfo.name);
+                    } else {
+                        showToast('Arquivo nao encontrado no armazenamento.', 'error');
+                    }
+                };
+                req.onerror = function() {
+                    showToast('Erro ao acessar arquivo.', 'error');
+                };
+            };
+            request.onerror = function() {
+                showToast('Erro ao abrir banco de dados.', 'error');
+            };
+        } else if (fileInfo.url) {
+            triggerDownload(fileInfo.url, fileInfo.name);
+        } else {
+            showToast('Arquivo indisponivel.', 'error');
+        }
+    }
+
+    function triggerDownload(url, filename) {
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename || 'download';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    </script>
+</body>
+</html>
