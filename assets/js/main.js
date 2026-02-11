@@ -1,8 +1,8 @@
 const defaultProducts = [
-    { id: 1, name: 'Launcher 01', price: 2.00, category: 'launchers', image: 'assets/img/launchers/l-1.jpg', description: 'Layout PSD moderno e impactante, criado especialmente para servidores de Mu Online que buscam um visual marcante e profissional.', badge: 'Premium', discount: 0, tag: 'Premium', active: true },
-    { id: 2, name: 'Logo 01', price: 6.00, category: 'logos', image: 'assets/img/logos/logo-01.jpg', description: 'Identidade visual moderna e impactante, desenvolvida especialmente para servidores de Mu Online.', badge: '', discount: 0, tag: '', active: true },
-    { id: 3, name: 'Launcher 02', price: 2.00, category: 'launchers', image: 'assets/img/launchers/l-2.jpg', description: 'Layout PSD moderno e impactante, com interface intuitiva e botoes bem posicionados.', badge: 'Premium', discount: 0, tag: 'Premium', active: true },
-    { id: 4, name: 'Template 01', price: 10.00, oldPrice: 10.00, category: 'templates', image: 'assets/img/templates/tema-01.jpg', description: 'Layout PSD moderno e elegante, com janelas de login e cadastro totalmente editaveis.', badge: '-12%', discount: 12, tag: 'Promocao', sale: true, active: true },
+    { id: 1, name: 'Launcher 01', price: 2.00, category: 'launchers', image: 'assets/img/launchers/l-1.jpg', description: 'Layout PSD moderno e impactante, criado especialmente para servidores de Mu Online que buscam um visual marcante e profissional.', badge: 'Premium', discount: 0, tag: 'Premium', fileTags: ['PSD'], active: true },
+    { id: 2, name: 'Logo 01', price: 6.00, category: 'logos', image: 'assets/img/logos/logo-01.jpg', description: 'Identidade visual moderna e impactante, desenvolvida especialmente para servidores de Mu Online.', badge: '', discount: 0, tag: '', fileTags: ['PSD'], active: true },
+    { id: 3, name: 'Launcher 02', price: 2.00, category: 'launchers', image: 'assets/img/launchers/l-2.jpg', description: 'Layout PSD moderno e impactante, com interface intuitiva e botoes bem posicionados.', badge: 'Premium', discount: 0, tag: 'Premium', fileTags: ['PSD'], active: true },
+    { id: 4, name: 'Template 01', price: 10.00, oldPrice: 10.00, category: 'templates', image: 'assets/img/templates/tema-01.jpg', description: 'Layout PSD moderno e elegante, com janelas de login e cadastro totalmente editaveis.', badge: '-12%', discount: 12, tag: 'Promocao', fileTags: ['PSD', 'HTML', 'CSS'], sale: true, active: true },
     { id: 5, name: 'Pack 01', price: 8.00, category: 'banners', image: 'assets/img/banners/01.jpg', description: 'Colecao de banners em alta qualidade, prontos para serem ajustados ao estilo do seu servidor.', badge: '', discount: 0, tag: '', active: true },
     { id: 6, name: 'Launcher 03', price: 7.00, oldPrice: 5.00, category: 'launchers', image: 'assets/img/launchers/l-3.jpg', description: 'Layout PSD moderno e leve, desenvolvido para servidores de Mu Online que buscam um visual limpo.', badge: '-18%', discount: 18, tag: 'Promocao', sale: true, active: true },
     { id: 7, name: 'Pack 02', price: 8.00, category: 'banners', image: 'assets/img/banners/02.jpg', description: 'Colecao de 6 banners profissionais para redes sociais e divulgacao.', badge: '', discount: 0, tag: '', active: true },
@@ -14,6 +14,30 @@ function initDefaultProducts() {
     if (!existing) {
         localStorage.setItem('wgdsign_products', JSON.stringify(defaultProducts));
     }
+}
+
+function getFileTagIcon(tag) {
+    var icons = {
+        'PSD': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#31A8FF"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">Ps</text></svg>',
+        'HTML': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#E44D26"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">HTML</text></svg>',
+        'CSS': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#264DE4"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">CSS</text></svg>',
+        'JS': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><text x="12" y="16" text-anchor="middle" fill="#000" font-size="8" font-weight="bold">JS</text></svg>',
+        'PHP': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#777BB3"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">PHP</text></svg>',
+        'PNG': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0D9488"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">PNG</text></svg>',
+        'JPG': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0D9488"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">JPG</text></svg>',
+        'SVG': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FFB13B"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">SVG</text></svg>',
+        'AI': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF9A00"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">Ai</text></svg>',
+        'FIGMA': '<svg class="file-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#A259FF"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="6" font-weight="bold">FIG</text></svg>'
+    };
+    return icons[tag] || '';
+}
+
+function renderFileTagsIcons(fileTags) {
+    if (!fileTags || !fileTags.length) return '';
+    var html = '<div class="file-tags-icons">';
+    fileTags.forEach(function(tag) { html += getFileTagIcon(tag); });
+    html += '</div>';
+    return html;
 }
 
 function getActiveProducts() {
@@ -455,11 +479,11 @@ async function handleCheckout(e) {
     var name = document.getElementById('checkoutName') ? document.getElementById('checkoutName').value : '';
     var email = document.getElementById('checkoutEmail') ? document.getElementById('checkoutEmail').value : '';
     var phone = document.getElementById('checkoutPhone') ? document.getElementById('checkoutPhone').value : '';
-    var cpf = document.getElementById('checkoutCpf') ? document.getElementById('checkoutCpf').value : '';
+    var name = document.getElementById('checkoutName') ? document.getElementById('checkoutName').value : '';
     var paymentRadio = document.querySelector('input[name="payment"]:checked');
     var paymentMethod = paymentRadio ? paymentRadio.value : 'pix';
 
-    if (!name || !email || !phone || !cpf) {
+    if (!name || !email || !phone || !name) {
         showToast('Preencha todos os campos!', 'error');
         return;
     }
@@ -467,7 +491,7 @@ async function handleCheckout(e) {
     var total = cart.reduce(function(sum, item) { return sum + Number(item.price); }, 0);
 
     var orderData = {
-        customer: { name: name, email: email, phone: phone, cpf: cpf },
+        customer: { name: name, email: email, phone: phone, name: name },
         items: cart.map(function(item) { return { id: Number(item.id), name: item.name, price: Number(item.price), image: item.image }; }),
         total: total,
         paymentMethod: paymentMethod
@@ -753,6 +777,60 @@ function closePreview() {
     const modal = document.getElementById('previewModal');
     modal?.classList.remove('open');
     document.body.style.overflow = '';
+}
+
+function openPortfolioModal(itemId) {
+    itemId = Number(itemId);
+    var items = getActivePortfolio();
+    var item = null;
+    for (var i = 0; i < items.length; i++) {
+        if (Number(items[i].id) === itemId) { item = items[i]; break; }
+    }
+    if (!item) return;
+
+    var isSubPage = window.location.pathname.includes('/pages/');
+    var imgSrc = item.image;
+    if (imgSrc && !imgSrc.startsWith('data:') && !imgSrc.startsWith('http')) {
+        if (isSubPage && !imgSrc.startsWith('../')) { imgSrc = '../' + imgSrc; }
+    }
+
+    var allCats = getFrontendCategories();
+    var catObj = allCats.find(function(c) { return c.slug === item.category; });
+    var categoryLabel = catObj ? catObj.name : (item.category.charAt(0).toUpperCase() + item.category.slice(1));
+
+    var existing = document.querySelector('.portfolio-modal');
+    if (existing) existing.remove();
+
+    var modal = document.createElement('div');
+    modal.className = 'portfolio-modal';
+    modal.innerHTML =
+        '<div class="portfolio-modal-overlay" onclick="closePortfolioModal()"></div>' +
+        '<div class="portfolio-modal-content">' +
+            '<button class="portfolio-modal-close" onclick="closePortfolioModal()">' +
+                '<i class="ri-close-line"></i>' +
+            '</button>' +
+            '<div class="portfolio-modal-image">' +
+                '<img src="' + imgSrc + '" alt="' + item.title + '">' +
+            '</div>' +
+            '<div class="portfolio-modal-info">' +
+                '<span class="portfolio-modal-category">' + categoryLabel + '</span>' +
+                '<h2 class="portfolio-modal-title">' + item.title + '</h2>' +
+                (item.description ? '<p class="portfolio-modal-description">' + item.description + '</p>' : '') +
+            '</div>' +
+        '</div>';
+
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function() { modal.classList.add('open'); });
+}
+
+function closePortfolioModal() {
+    var modal = document.querySelector('.portfolio-modal');
+    if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(function() { modal.remove(); }, 300);
+    }
 }
 
 function openProductModal(productId) {
@@ -1202,20 +1280,22 @@ function renderDynamicShop() {
             priceHTML = '<span class="price-old">R$ ' + Number(product.oldPrice).toFixed(2).replace('.', ',') + '</span> ' + priceHTML;
         }
 
+        var fileTagsHTML = renderFileTagsIcons(product.fileTags);
+        var categoryLabel = (function() { var cats = getFrontendCategories(); var c = cats.find(function(cat) { return cat.slug === product.category; }); return c ? c.name : product.category; })();
+
         card.innerHTML =
-            badgeHTML +
             '<div class="product-image">' +
+                fileTagsHTML +
+                '<span class="product-category-badge">' + categoryLabel + '</span>' +
                 '<img src="' + imgSrc + '" alt="' + product.name + '" loading="lazy">' +
                 '<div class="product-overlay">' +
                     '<button class="quick-view-btn" onclick="openProductModal(' + product.id + ')">' +
                         '<i class="ri-eye-line"></i> Ver Detalhes' +
                     '</button>' +
                 '</div>' +
+                '<h3 class="product-name-overlay">' + product.name + '</h3>' +
             '</div>' +
             '<div class="product-info">' +
-                '<span class="product-category">' + (function() { var cats = getFrontendCategories(); var c = cats.find(function(cat) { return cat.slug === product.category; }); return c ? c.name : product.category; })() + '</span>' +
-                '<h3 class="product-name">' + product.name + '</h3>' +
-                '<p class="product-description">' + product.description + '</p>' +
                 '<div class="product-footer">' +
                     '<div class="product-price">' + priceHTML + '</div>' +
                     '<button class="add-to-cart-btn" onclick="addToCart(' + product.id + ')"><i class="ri-shopping-cart-line"></i></button>' +
@@ -1225,7 +1305,39 @@ function renderDynamicShop() {
         targetGrid.appendChild(card);
     });
 
-    initShopFilters();
+    if (!isSubPage) {
+        initShopSlider();
+    } else {
+        initShopFilters();
+    }
+}
+
+var shopSliderPos = 0;
+
+function initShopSlider() {
+    var track = document.getElementById('shopGrid');
+    var prevBtn = document.getElementById('shopArrowPrev');
+    var nextBtn = document.getElementById('shopArrowNext');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    shopSliderPos = 0;
+    track.style.transform = 'translateX(0px)';
+
+    var cardWidth = 300 + 24;
+
+    nextBtn.onclick = function() {
+        var cards = track.querySelectorAll('.product-card');
+        var wrapperWidth = track.parentElement.offsetWidth;
+        var maxScroll = (cards.length * cardWidth) - wrapperWidth;
+        if (maxScroll < 0) maxScroll = 0;
+        shopSliderPos = Math.min(shopSliderPos + cardWidth, maxScroll);
+        track.style.transform = 'translateX(-' + shopSliderPos + 'px)';
+    };
+
+    prevBtn.onclick = function() {
+        shopSliderPos = Math.max(shopSliderPos - cardWidth, 0);
+        track.style.transform = 'translateX(-' + shopSliderPos + 'px)';
+    };
 }
 
 function getActivePortfolio() {
@@ -1281,7 +1393,7 @@ function renderDynamicPortfolio() {
                 '<img src="' + imgSrc + '" alt="' + item.title + '" loading="lazy">' +
                 '<div class="portfolio-overlay">' +
                     '<div class="portfolio-actions">' +
-                        '<button class="action-btn" onclick="openPreview(\'' + imgSrc.replace(/'/g, "\\'") + '\')">' +
+                        '<button class="action-btn" onclick="openPortfolioModal(' + item.id + ')">' +
                             '<i class="ri-zoom-in-line"></i>' +
                         '</button>' +
                     '</div>' +
@@ -1289,6 +1401,7 @@ function renderDynamicPortfolio() {
             '</div>' +
             '<div class="portfolio-info">' +
                 '<h3>' + item.title + '</h3>' +
+                (item.description ? '<p class="portfolio-description">' + item.description + '</p>' : '') +
                 '<span class="portfolio-category">' + categoryLabel + '</span>' +
             '</div>';
 

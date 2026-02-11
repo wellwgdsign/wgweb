@@ -10,6 +10,47 @@ let editingPortfolioId = null;
 let editingSlideId = null;
 let editingCategoryId = null;
 
+function getSelectedFileTags() {
+    var container = document.getElementById('productFileTags');
+    if (!container) return [];
+    var checked = container.querySelectorAll('input[type="checkbox"]:checked');
+    var tags = [];
+    checked.forEach(function(cb) { tags.push(cb.value); });
+    return tags;
+}
+
+function setSelectedFileTags(tags) {
+    var container = document.getElementById('productFileTags');
+    if (!container) return;
+    container.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.checked = Array.isArray(tags) && tags.indexOf(cb.value) !== -1;
+    });
+}
+
+function getFileTagIcon(tag) {
+    var icons = {
+        'PSD': '<svg class="file-icon file-icon-psd" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#31A8FF"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">Ps</text></svg>',
+        'HTML': '<svg class="file-icon file-icon-html" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#E44D26"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">HTML</text></svg>',
+        'CSS': '<svg class="file-icon file-icon-css" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#264DE4"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">CSS</text></svg>',
+        'JS': '<svg class="file-icon file-icon-js" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><text x="12" y="16" text-anchor="middle" fill="#000" font-size="8" font-weight="bold">JS</text></svg>',
+        'PHP': '<svg class="file-icon file-icon-php" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#777BB3"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">PHP</text></svg>',
+        'PNG': '<svg class="file-icon file-icon-png" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0D9488"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">PNG</text></svg>',
+        'JPG': '<svg class="file-icon file-icon-jpg" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0D9488"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">JPG</text></svg>',
+        'SVG': '<svg class="file-icon file-icon-svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FFB13B"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold">SVG</text></svg>',
+        'AI': '<svg class="file-icon file-icon-ai" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF9A00"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">Ai</text></svg>',
+        'FIGMA': '<svg class="file-icon file-icon-figma" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#A259FF"/><text x="12" y="16" text-anchor="middle" fill="#fff" font-size="6" font-weight="bold">FIG</text></svg>'
+    };
+    return icons[tag] || '<span class="file-tag-text">' + tag + '</span>';
+}
+
+function renderFileTagsIcons(fileTags) {
+    if (!fileTags || !fileTags.length) return '';
+    var html = '<div class="file-tags-icons">';
+    fileTags.forEach(function(tag) { html += getFileTagIcon(tag); });
+    html += '</div>';
+    return html;
+}
+
 function isAdmin() {
     const user = JSON.parse(localStorage.getItem('wgdsign_user'));
     if (!user) return false;
@@ -71,6 +112,7 @@ function addProduct(productData) {
         badge: productData.discount > 0 ? ('-' + productData.discount + '%') : (productData.tag || ''),
         discount: parseInt(productData.discount) || 0,
         tag: productData.tag || '',
+        fileTags: productData.fileTags || [],
         sale: productData.discount > 0,
         active: true,
         createdAt: new Date().toISOString()
@@ -105,6 +147,7 @@ function updateProduct(id, productData) {
         badge: discount > 0 ? ('-' + discount + '%') : (productData.tag || ''),
         discount: discount,
         tag: productData.tag || '',
+        fileTags: productData.fileTags || [],
         sale: discount > 0,
         updatedAt: new Date().toISOString()
     };
@@ -304,11 +347,38 @@ function safeLocalStorageSave(key, data) {
         return true;
     } catch (e) {
         if (e.name === 'QuotaExceededError' || e.code === 22) {
-            showToast('Erro: Armazenamento cheio! Tente remover imagens antigas ou use URLs externas.', 'error');
-            return false;
+            cleanupLocalStorageBase64();
+            try {
+                localStorage.setItem(key, JSON.stringify(data));
+                return true;
+            } catch (e2) {
+                showToast('Erro: Armazenamento cheio! Tente remover imagens antigas ou use URLs externas.', 'error');
+                return false;
+            }
         }
         throw e;
     }
+}
+
+function cleanupLocalStorageBase64() {
+    var keys = [PRODUCTS_KEY, PORTFOLIO_KEY, SLIDES_KEY];
+    keys.forEach(function(key) {
+        var raw = localStorage.getItem(key);
+        if (!raw) return;
+        try {
+            var items = JSON.parse(raw);
+            var changed = false;
+            items.forEach(function(item) {
+                if (item.image && item.image.startsWith('data:') && item.image.length > 5000) {
+                    item.image = '';
+                    changed = true;
+                }
+            });
+            if (changed) {
+                localStorage.setItem(key, JSON.stringify(items));
+            }
+        } catch(e) {}
+    });
 }
 
 function formatFileSize(bytes) {
@@ -383,6 +453,7 @@ function openAddProduct() {
     document.getElementById('formTitle').textContent = 'Adicionar Produto';
     document.getElementById('productForm').reset();
     document.getElementById('imagePreview').innerHTML = '';
+    setSelectedFileTags([]);
     populateCategorySelects();
     renderInlineFilesList(null);
     document.getElementById('productFormModal').classList.add('open');
@@ -403,7 +474,8 @@ function openEditProduct(id) {
     document.getElementById('productCategory').value = product.category;
     document.getElementById('productDescription').value = product.description;
     document.getElementById('productDiscount').value = product.discount || 0;
-    document.getElementById('productTag').value = product.tag || '';
+    if (document.getElementById('productTag')) document.getElementById('productTag').value = product.tag || '';
+    setSelectedFileTags(product.fileTags || []);
     document.getElementById('productImageUrl').value = product.image.startsWith('data:') ? '' : product.image;
 
     var imgSrc = product.image;
@@ -431,7 +503,8 @@ function handleProductSubmit(e) {
     var category = document.getElementById('productCategory').value;
     var description = document.getElementById('productDescription').value.trim();
     var discount = document.getElementById('productDiscount').value;
-    var tag = document.getElementById('productTag').value.trim();
+    var tag = document.getElementById('productTag') ? document.getElementById('productTag').value.trim() : '';
+    var fileTags = getSelectedFileTags();
     var imageUrl = document.getElementById('productImageUrl').value.trim();
     var imageFile = document.getElementById('productImageFile').files[0];
     var downloadFile = document.getElementById('productDownloadFile').files[0];
@@ -449,6 +522,7 @@ function handleProductSubmit(e) {
             description: description,
             discount: discount,
             tag: tag,
+            fileTags: fileTags,
             image: imageResult || imageUrl || ''
         };
 

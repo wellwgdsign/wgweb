@@ -626,13 +626,263 @@ nav.scrolled {
     margin-bottom: 0.5rem;
 }
 
+.portfolio-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .portfolio-category {
     color: var(--primary);
     font-size: 0.85rem;
 }
 
+.portfolio-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.portfolio-modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.portfolio-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.portfolio-modal-content {
+    position: relative;
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-modal.open .portfolio-modal-content {
+    transform: scale(1);
+}
+
+.portfolio-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary);
+    color: var(--bg-dark);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.portfolio-modal-close:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.portfolio-modal-image {
+    flex: 1.2;
+    min-height: 300px;
+    max-height: 85vh;
+    overflow: hidden;
+}
+
+.portfolio-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-modal-info {
+    flex: 0.8;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.portfolio-modal-category {
+    display: inline-block;
+    background: rgba(0, 255, 180, 0.1);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: fit-content;
+    border: 1px solid rgba(0, 255, 180, 0.2);
+}
+
+.portfolio-modal-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.portfolio-modal-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .portfolio-modal-content {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .portfolio-modal-image {
+        min-height: 200px;
+        max-height: 300px;
+    }
+    .portfolio-modal-info {
+        padding: 1.5rem;
+    }
+    .portfolio-modal-title {
+        font-size: 1.3rem;
+    }
+}
+
 .shop-section {
     background: var(--bg-dark);
+    padding: 80px 0;
+}
+
+.shop-header-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.shop-badge-icon {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.shop-badge-text {
+    color: var(--primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.shop-header-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.shop-slider-layout {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.shop-slider-left {
+    flex: 0 0 280px;
+    padding-top: 1rem;
+}
+
+.shop-slider-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+}
+
+.shop-slider-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.shop-slider-arrows {
+    display: flex;
+    gap: 3rem;
+}
+
+.shop-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.shop-arrow:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: var(--shadow-glow);
+}
+
+.shop-slider-track-wrapper {
+    flex: 1;
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.shop-slider-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.shop-slider-track .product-card {
+    flex: 0 0 300px;
+    min-width: 300px;
+}
+
+.shop-view-all {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.shop-view-all .btn {
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .shop-grid {
@@ -643,15 +893,17 @@ nav.scrolled {
 
 .product-card {
     background: var(--bg-card);
-    border-radius: var(--radius-md);
+    border-radius: 2px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: var(--transition);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: var(--primary);
 }
@@ -675,25 +927,71 @@ nav.scrolled {
 
 .product-image {
     position: relative;
-    height: 220px;
     overflow: hidden;
+}
+
+.file-tags-icons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 4px;
+    z-index: 3;
+    flex-wrap: wrap;
+}
+
+.file-tags-icons .file-icon {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    border-radius: 5px;
+}
+
+.product-category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 255, 180, 0.15);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 255, 180, 0.25);
+}
+
+.product-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 2rem 1rem 0.8rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+    z-index: 2;
 }
 
 .product-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
     transition: var(--transition);
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .product-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -724,21 +1022,7 @@ nav.scrolled {
 }
 
 .product-info {
-    padding: 1.5rem;
-}
-
-.product-category {
-    display: inline-block;
-    color: var(--primary);
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-.product-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .product-description {
@@ -770,15 +1054,15 @@ nav.scrolled {
 
 .price-current {
     color: var(--primary);
-    font-size: 1.3rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .add-to-cart-btn {
     background: var(--primary);
     color: var(--bg-dark);
-    width: 44px;
-    height: 44px;
+    width: 35px;
+    height: 35px;
     border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
@@ -1106,6 +1390,52 @@ nav.scrolled {
 .payment-methods i {
     font-size: 1.3rem;
     color: var(--primary);
+}
+
+
+.modal-content {
+    width: 100%;
+    background-color: #21232c;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+    border: solid 1px #323928;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+.qrcode-img {
+    width: 100%;
+    max-width: 190px;
+}
+#pixCopiaECola {
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+    resize: none;
+    font-size: 10px;
+    color: #eee;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 1px #323928;
+    background: #1a1a2e;
+}
+
+.btn-copiar{
+    font-family: 'Inter', sans-serif;
+    padding: 5px;
+    background: #00d4aa;
+    border-color: #00d4aa;
+    color: #0a0b0f;
+    font-weight: bold;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .cart-sidebar {
@@ -1551,6 +1881,34 @@ nav.scrolled {
     .portfolio-grid,
     .shop-grid {
         grid-template-columns: 1fr;
+    }
+
+    .shop-slider-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .shop-slider-left {
+        flex: none;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .shop-slider-title {
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    .shop-slider-desc {
+        margin-bottom: 0.5rem;
+    }
+
+    .shop-slider-track .product-card {
+        flex: 0 0 250px;
+        min-width: 250px;
     }
     
     .services-grid {

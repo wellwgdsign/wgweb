@@ -559,6 +559,42 @@
     margin-right: 8px;
 }
 
+.file-tags-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.file-tag-option {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.file-tag-option input[type="checkbox"] {
+    display: none;
+}
+
+.file-tag-label {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.file-tag-option input[type="checkbox"]:checked + .file-tag-label {
+    background: rgba(200, 255, 0, 0.15);
+    border-color: #c8ff00;
+    color: #c8ff00;
+}
+
 .admin-image-preview {
     width: 100%;
     min-height: 80px;

@@ -242,19 +242,27 @@
 
     <section id="shop" class="shop-section">
         <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge" data-i18n="shop.badge">Loja</span>
-                <h2 class="section-title" data-i18n="shop.title">Produtos Disponiveis</h2>
-                <p class="section-description" data-i18n="shop.description">Adquira templates e materiais prontos para uso</p>
+            <div class="shop-header-line">
+                <span class="shop-badge-icon"><i class="ri-shopping-bag-3-line"></i></span>
+                <span class="shop-badge-text" data-i18n="shop.badge">Loja de Produtos</span>
+                <div class="shop-header-divider"></div>
             </div>
-            <div class="shop-filters">
-                <button class="shop-filter-btn active" data-filter="all" data-i18n="filter.all">Todos</button>
-                <button class="shop-filter-btn" data-filter="templates" data-i18n="filter.templates">Templates</button>
-                <button class="shop-filter-btn" data-filter="launchers" data-i18n="filter.launchers">Launchers</button>
-                <button class="shop-filter-btn" data-filter="logos" data-i18n="filter.logos">Logos</button>
-                <button class="shop-filter-btn" data-filter="banners" data-i18n="filter.banners">Banners</button>
+            <div class="shop-slider-layout">
+                <div class="shop-slider-left">
+                    <h2 class="shop-slider-title" data-i18n="shop.title">Produtos disponiveis</h2>
+                    <p class="shop-slider-desc" data-i18n="shop.description">Adquira Temas Premium e materiais  ou para uso Profissional. ou para edição de uso pessoal.</p>
+                    <div class="shop-slider-arrows">
+                        <button class="shop-arrow shop-arrow-prev" id="shopArrowPrev"><i class="ri-arrow-left-line"></i></button>
+                        <button class="shop-arrow shop-arrow-next" id="shopArrowNext"><i class="ri-arrow-right-line"></i></button>
+                    </div>
+                </div>
+                <div class="shop-slider-track-wrapper">
+                    <div class="shop-slider-track" id="shopGrid"></div>
+                </div>
             </div>
-            <div class="shop-grid" id="shopGrid"></div>
+            <div class="shop-view-all">
+                <a href="pages/templates.html" class="btn btn-primary btn-lg">Ver todos os Produtos da Loja</a>
+            </div>
         </div>
     </section>
 
@@ -262,8 +270,8 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-badge" data-i18n="services.badge">Servicos</span>
-                <h2 class="section-title" data-i18n="services.title">O Que Ofereco</h2>
-                <p class="section-description" data-i18n="services.description">Solucoes completas em design para seu servidor MuOnline</p>
+                <h2 class="section-title" data-i18n="services.title">O Que Oferecemos</h2>
+                <p class="section-description" data-i18n="services.description">Solucoes completas em design para seu servidor RPG Online</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -595,8 +603,8 @@
                                 <label>WhatsApp</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="checkoutCpf" placeholder="CPF" required>
-                                <label>CPF</label>
+                                <input type="text" id="checkoutName" placeholder="Nome Empresa" required>
+                                <label data-i18n="checkout.fullName">Nome Empresa</label>
                             </div>
                         </div>
                         <h3 data-i18n="checkout.paymentMethod">Forma de Pagamento</h3>
