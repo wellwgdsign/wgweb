@@ -127,7 +127,54 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartUI();
     renderDynamicShop();
     renderDynamicPortfolio();
+    initTestimonialsSlider();
+    initLogoTypewriter();
 });
+
+function initLogoTypewriter() {
+    var elements = document.querySelectorAll('nav .logo-text, .navbar .logo-text, header .logo-text');
+    if (!elements.length) {
+        elements = document.querySelectorAll('.logo .logo-text');
+    }
+
+    var texts = ['WGDS Studio', 'Web Design', 'Design Grafico'];
+    var textIndex = 0;
+    var charIndex = 0;
+    var isDeleting = false;
+    var typeSpeed = 100;
+    var deleteSpeed = 60;
+    var pauseAfterType = 2000;
+    var pauseAfterDelete = 300;
+
+    function tick() {
+        var current = texts[textIndex];
+
+        if (!isDeleting) {
+            charIndex++;
+            if (charIndex > current.length) {
+                setTimeout(function() { isDeleting = true; tick(); }, pauseAfterType);
+                return;
+            }
+        } else {
+            charIndex--;
+            if (charIndex < 0) {
+                charIndex = 0;
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(tick, pauseAfterDelete);
+                return;
+            }
+        }
+
+        elements.forEach(function(el) {
+            el.textContent = current.substring(0, charIndex);
+        });
+
+        setTimeout(tick, isDeleting ? deleteSpeed : typeSpeed);
+    }
+
+    tick();
+}
 
 function initFrontendCategories() {
     var existing = localStorage.getItem('wgdsign_categories');
@@ -899,10 +946,31 @@ function initContactForm() {
         submitBtn.innerHTML = '<i class="ri-loader-4-line"></i> Enviando...';
         submitBtn.disabled = true;
         
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    access_key: '006f2849-f613-4df6-9933-37a96174c892',
+                    from_name: 'Contato WGDesign',
+                    subject: 'Novo contato: ' + service + ' - ' + name,
+                    name: name,
+                    email: email,
+                    service: service,
+                    message: message
+                })
+            });
+            const data = await response.json();
+            if (data.success) {
+                showToast('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                form.reset();
+            } else {
+                showToast('Erro ao enviar mensagem. Tente novamente.', 'error');
+            }
+        } catch (err) {
+            showToast('Erro de conexao. Tente novamente.', 'error');
+        }
         
-        showToast('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        form.reset();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     });
@@ -1338,6 +1406,43 @@ function initShopSlider() {
         shopSliderPos = Math.max(shopSliderPos - cardWidth, 0);
         track.style.transform = 'translateX(-' + shopSliderPos + 'px)';
     };
+}
+
+function initTestimonialsSlider() {
+    var track = document.getElementById('testimonialsTrack');
+    var prevBtn = document.getElementById('testimonialPrev');
+    var nextBtn = document.getElementById('testimonialNext');
+    var dotsContainer = document.getElementById('testimonialsDots');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    var slides = track.querySelectorAll('.testimonial-slide');
+    var current = 0;
+    var total = slides.length;
+
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        for (var i = 0; i < total; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+            dot.dataset.index = i;
+            dot.onclick = function() { goTo(Number(this.dataset.index)); };
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function goTo(index) {
+        current = index;
+        if (current < 0) current = total - 1;
+        if (current >= total) current = 0;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        var dots = dotsContainer ? dotsContainer.querySelectorAll('.testimonial-dot') : [];
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+    }
+
+    nextBtn.onclick = function() { goTo(current + 1); };
+    prevBtn.onclick = function() { goTo(current - 1); };
+
+    setInterval(function() { goTo(current + 1); }, 6000);
 }
 
 function getActivePortfolio() {

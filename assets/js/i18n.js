@@ -48,7 +48,7 @@ const translations = {
         shop: {
             badge: 'Loja',
             title: 'Produtos Disponiveis',
-            description: 'Adquira templates e materiais prontos para uso',
+            description: 'Adquira Temas Premium e materiais  ou para uso Profissional. ou para edição de uso pessoal.',
             viewDetails: 'Ver Detalhes'
         },
         services: {
@@ -413,7 +413,14 @@ function translatePage(lang) {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(t, key);
         if (value) {
-            el.textContent = value;
+            const icon = el.querySelector('i');
+            if (icon) {
+                el.textContent = '';
+                el.appendChild(icon);
+                el.appendChild(document.createTextNode(' ' + value));
+            } else {
+                el.textContent = value;
+            }
         }
     });
     

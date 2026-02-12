@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/auth.css">
 
@@ -89,7 +89,7 @@
                     <i class="ri-shopping-cart-2-line"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
-                <button class="nav-cta" data-i18n="nav.quote">Orcamento</button>
+                <a href="https://wa.me/5511930926706?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento" target="_blank" class="nav-cta" data-i18n="nav.quote"><i class="ri-whatsapp-fill"></i> Orcamento</a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span></span>
                     <span></span>
@@ -146,7 +146,7 @@
         </div>
         <div class="hero-visual">
             <div class="hero-showcase" id="heroShowcase">
-                <img src="assets/img/hero/slide3.jpg" alt="Showcase Design" class="showcase-main">
+                <img src="assets/img/hero/slide3.png" alt="Showcase Design" class="showcase-main">
                 <div class="showcase-float showcase-1">
                     <img src="assets/img/hero/slide1.jpg" alt="Design 1">
                 </div>
@@ -159,8 +159,12 @@
 
     <section id="portfolio" class="portfolio-section">
         <div class="section-container">
+            <div class="portfolio-header-line">
+                <span class="portfolio-badge-icon"><i class="ri-gallery-line"></i></span>
+                <span class="portfolio-badge-text" data-i18n="portfolio.badge">Portfolio</span>
+                <div class="portfolio-header-divider"></div>
+            </div>
             <div class="section-header">
-                <span class="section-badge" data-i18n="portfolio.badge">Portfolio</span>
                 <h2 class="section-title" data-i18n="portfolio.title">Trabalhos em Destaque</h2>
                 <p class="section-description" data-i18n="portfolio.description">Confira alguns dos meus melhores projetos para servidores</p>
             </div>
@@ -244,7 +248,7 @@
         <div class="section-container">
             <div class="shop-header-line">
                 <span class="shop-badge-icon"><i class="ri-shopping-bag-3-line"></i></span>
-                <span class="shop-badge-text" data-i18n="shop.badge">Loja de Produtos</span>
+                <span class="shop-badge-text" data-i18n="shop.badge">Loja</span>
                 <div class="shop-header-divider"></div>
             </div>
             <div class="shop-slider-layout">
@@ -255,21 +259,26 @@
                         <button class="shop-arrow shop-arrow-prev" id="shopArrowPrev"><i class="ri-arrow-left-line"></i></button>
                         <button class="shop-arrow shop-arrow-next" id="shopArrowNext"><i class="ri-arrow-right-line"></i></button>
                     </div>
+                    <div class="shop-view-all">
+                <a href="pages/templates.html" class="btn btn-primary btn-lg">Ver Todos Disponiveis</a>
+            </div>
                 </div>
                 <div class="shop-slider-track-wrapper">
                     <div class="shop-slider-track" id="shopGrid"></div>
                 </div>
             </div>
-            <div class="shop-view-all">
-                <a href="pages/templates.html" class="btn btn-primary btn-lg">Ver todos os Produtos da Loja</a>
-            </div>
+           
         </div>
     </section>
 
     <section id="servicos" class="services-section">
         <div class="section-container">
+            <div class="services-header-line">
+                <span class="services-badge-icon"><i class="ri-service-line"></i></span>
+                <span class="services-badge-text" data-i18n="services.badge">Servicos</span>
+                <div class="services-header-divider"></div>
+            </div>
             <div class="section-header">
-                <span class="section-badge" data-i18n="services.badge">Servicos</span>
                 <h2 class="section-title" data-i18n="services.title">O Que Oferecemos</h2>
                 <p class="section-description" data-i18n="services.description">Solucoes completas em design para seu servidor RPG Online</p>
             </div>
@@ -328,89 +337,124 @@
         </div>
     </section>
 
+    <section class="brands-section">
+        <div class="brands-marquee brands-marquee-right">
+            <div class="brands-track">
+                <div class="brand-item"><i class="ri-gamepad-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-cursor-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-infinity-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-cursor-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-ship-2-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-shield-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-quill-pen-line"></i> logoipsum</div>
+                <div class="brand-item"><i class="ri-leaf-line"></i> logoipsum</div>
+                <div class="brand-item"><i class="ri-gamepad-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-cursor-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-infinity-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-cursor-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-ship-2-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-shield-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-quill-pen-line"></i> logoipsum</div>
+                <div class="brand-item"><i class="ri-leaf-line"></i> logoipsum</div>
+            </div>
+        </div>
+        <div class="brands-marquee brands-marquee-left">
+            <div class="brands-track">
+                <div class="brand-item"><i class="ri-contrast-2-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-bar-chart-box-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-contrast-2-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-bar-chart-box-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-flashlight-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-font-size-2"></i> LOGO IPSUM</div>
+                <div class="brand-item"><i class="ri-font-size"></i> LOGOIPSUM</div>
+                <div class="brand-item"><i class="ri-cloud-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-contrast-2-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-bar-chart-box-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-contrast-2-line"></i> Logoipsum</div>
+                <div class="brand-item"><i class="ri-bar-chart-box-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-flashlight-line"></i> offmax</div>
+                <div class="brand-item"><i class="ri-font-size-2"></i> LOGO IPSUM</div>
+                <div class="brand-item"><i class="ri-font-size"></i> LOGOIPSUM</div>
+                <div class="brand-item"><i class="ri-cloud-line"></i> Logoipsum</div>
+            </div>
+        </div>
+    </section>
+
     <section id="testimonials" class="testimonials-section">
         <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge" data-i18n="testimonials.badge">Depoimentos</span>
-                <h2 class="section-title" data-i18n="testimonials.title">O Que Dizem Nossos Clientes</h2>
-                <p class="section-description" data-i18n="testimonials.description">Veja o feedback de quem ja utilizou nossos servicos</p>
+            <div class="testimonials-header">
+                <span class="testimonials-badge"><i class="ri-chat-quote-line"></i> Depoimentos</span>
+                <div class="testimonials-header-divider"></div>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                    </div>
-                    <p class="testimonial-text">"Excelente trabalho! O launcher ficou incrivel e meu servidor ganhou uma cara profissional. Recomendo demais!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="ri-user-line"></i>
+            <div class="testimonials-layout">
+                <div class="testimonials-slider-wrapper">
+                    <div class="testimonials-slider-track" id="testimonialsTrack">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                            <p class="testimonial-text">"Excelente trabalho! O launcher ficou incrivel e meu servidor ganhou uma cara profissional. Recomendo demais a todos que precisam de um visual impactante!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="ri-user-line"></i></div>
+                                <div class="author-info">
+                                    <span class="author-name">Cliente Name</span>
+                                    <span class="author-role">Mu Online</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="author-info">
-                            <span class="author-name">Cliente Name</span>
-                            <span class="author-role">Mu Online</span>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                            <p class="testimonial-text">"Designer muito profissional, entendeu exatamente o que eu queria. O template do meu site ficou perfeito!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="ri-user-line"></i></div>
+                                <div class="author-info">
+                                    <span class="author-name">Cliente Name</span>
+                                    <span class="author-role">Mu Online</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                            </div>
+                            <p class="testimonial-text">"Rapido, eficiente e com otimo preco. Ja comprei varios materiais e sempre fico satisfeito com a qualidade."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="ri-user-line"></i></div>
+                                <div class="author-info">
+                                    <span class="author-name">Cliente Name</span>
+                                    <span class="author-role">Mu Online</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></div>
+                            <div class="testimonial-rating">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                            <p class="testimonial-text">"Os banners para redes sociais ficaram incriveis! Ajudaram muito na divulgacao do meu servidor. Top demais!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="ri-user-line"></i></div>
+                                <div class="author-info">
+                                    <span class="author-name">Cliente Name</span>
+                                    <span class="author-role">Mu Online</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
+                <div class="testimonials-right">
+                    <h2 class="testimonials-title">O Que Dizem Nossos Clientes</h2>
+                    <p class="testimonials-desc">Veja o feedback de quem ja utilizou nossos servicos e produtos</p>
+                    <div class="testimonials-arrows">
+                        <button class="testimonial-arrow" id="testimonialPrev"><i class="ri-arrow-left-line"></i></button>
+                        <button class="testimonial-arrow" id="testimonialNext"><i class="ri-arrow-right-line"></i></button>
                     </div>
-                    <p class="testimonial-text">"Designer muito profissional, entendeu exatamente o que eu queria. O template do meu site ficou perfeito!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="ri-user-line"></i>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">Cliente Name</span>
-                            <span class="author-role">Mu Online</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-half-fill"></i>
-                    </div>
-                    <p class="testimonial-text">"Rapido, eficiente e com otimo preco. Ja comprei varios materiais e sempre fico satisfeito com a qualidade."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="ri-user-line"></i>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">Cliente Name</span>
-                            <span class="author-role">Mu Online</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                    </div>
-                    <p class="testimonial-text">"Os banners para redes sociais ficaram incriveis! Ajudaram muito na divulgacao do meu servidor. Top demais!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="ri-user-line"></i>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">Cliente Name</span>
-                            <span class="author-role">Mu Online</span>
-                        </div>
-                    </div>
+                    <div class="testimonials-dots" id="testimonialsDots"></div>
                 </div>
             </div>
         </div>
@@ -418,9 +462,13 @@
 
     <section id="contato" class="contact-section">
         <div class="section-container">
+            <div class="contact-header-line">
+                <span class="contact-badge-icon"><i class="ri-mail-send-line"></i></span>
+                <span class="contact-badge-text" data-i18n="contact.badge">Contato</span>
+                <div class="contact-header-divider"></div>
+            </div>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <span class="section-badge" data-i18n="contact.badge">Contato</span>
                     <h2 class="section-title" data-i18n="contact.title">Vamos Conversar</h2>
                     <p class="contact-description" data-i18n="contact.description">
                         Tem um projeto em mente? Entre em contato para um orcamento personalizado.
@@ -462,6 +510,7 @@
                     </div>
                 </div>
                 <div class="contact-form-wrapper">
+                    <img src="assets/img/render.png" alt="Render" class="contact-render">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <input type="text" id="name" placeholder="Seu Nome" required>
