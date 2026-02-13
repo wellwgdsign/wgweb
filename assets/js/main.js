@@ -1103,7 +1103,7 @@ function addProductModalStyles() {
         .product-modal-content { position: relative; background: var(--bg-card); border-radius: var(--radius-lg); max-width: 800px; width: 90%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
         .product-modal-close { position: absolute; top: 15px; right: 15px; background: var(--primary); color: var(--bg-dark); width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.3rem; z-index: 10; display: flex; align-items: center; justify-content: center; }
         .product-modal-image { height: 400px; }
-        .product-modal-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-modal-image img { width: 100%; height: auto%; object-fit: cover; }
         .product-modal-info { padding: 2rem; display: flex; flex-direction: column; }
         .product-modal-info h2 { font-size: 1.5rem; margin-bottom: 1rem; }
         .product-modal-info p { color: var(--text-secondary); margin-bottom: 1.5rem; flex: 1; }
