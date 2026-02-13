@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +17,88 @@
 
     <link rel="icon" href="./assets/img/fav-logo/favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/fav-logo/favicon.png" />
+
+    <script>
+  (function () {
+    // Título original da página
+    const originalTitle = document.title;
+
+    // Mensagens (primeiro a mãozinha, depois o foguete)
+    const msgs = ["👋 Ei, volta aqui!", "🚀 Seu site novo te espera…", "🚀 É Sua vez de Brilhar…"];
+
+    // Tempo entre trocas (ms)
+    const INTERVAL = 1500;
+
+    let timer = null;
+    let i = 0;
+
+    function startCycle() {
+      // começa exatamente com a 1ª mensagem
+      clearInterval(timer);
+      i = 0;
+      document.title = msgs[i];
+      timer = setInterval(() => {
+        i = (i + 1) % msgs.length;
+        document.title = msgs[i];
+      }, INTERVAL);
+    }
+
+    function stopCycle() {
+      clearInterval(timer);
+      document.title = originalTitle;
+    }
+
+    // Troca quando a aba perde/ganha foco
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) startCycle();
+      else stopCycle();
+    });
+
+    // Garante comportamento também com blur/focus da janela
+    window.addEventListener("blur", () => { if (document.hidden) return; startCycle(); });
+    window.addEventListener("focus", stopCycle);
+  })();
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz o layout ser responsivo, ajustando-se à largura da tela do dispositivo -->
+    <title>Cursor Background</title> <!-- Título da página exibido na aba do navegador -->
+</head>
+<body>
+    <!-- Div usada como fundo do cursor personalizado -->
+    <div id="cursor-background"></div>
+
+    <!-- Script que manipula o comportamento do cursor e seu fundo -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cursorBackground = document.getElementById("cursor-background"); // Seleciona o elemento com id "cursor-background"
+
+            // Detecta o movimento do mouse e atualiza a posição da div de fundo
+            document.addEventListener("mousemove", function (e) {
+                const x = e.clientX; // Pega a posição X do mouse
+                const y = e.clientY; // Pega a posição Y do mouse
+
+                // Move o fundo para o centro da posição do cursor
+                cursorBackground.style.left = x - cursorBackground.clientWidth / 2 + "px"; 
+                cursorBackground.style.top = y - cursorBackground.clientHeight / 2 + "px"; 
+            });
+
+            // Quando o mouse entra na página, exibe o fundo do cursor
+            document.addEventListener("mouseenter", function () {
+                cursorBackground.style.display = "block"; // Exibe o fundo do cursor
+            });
+
+            // Quando o mouse sai da página, oculta o fundo do cursor
+            document.addEventListener("mouseleave", function () {
+                cursorBackground.style.display = "none"; // Oculta o fundo do cursor
+            });
+        });
+    </script>
+</body>
+</html>
 
 
 </head>
@@ -98,8 +182,10 @@
             </div>
         </div>
     </nav>
+    
 
     <section id="home" class="hero">
+        
         <div class="hero-bg">
             <div class="hero-carousel-bg" id="heroCarouselBg"></div>
             <div class="hero-overlay"></div>
@@ -110,6 +196,9 @@
             <div class="hero-badge">
                 <i class="ri-verified-badge-fill"></i>
                 <span id="heroTag" data-i18n="hero.badge">Especialista em RPG Online</span>
+            </div>
+            <div class="imgg ">
+                
             </div>
             <h1 class="hero-title">
                 <span id="heroTitle" data-i18n="hero.title1">Design Profissional para</span>
@@ -146,6 +235,7 @@
         </div>
         <div class="hero-visual">
             <div class="hero-showcase" id="heroShowcase">
+
                 <img src="assets/img/hero/slide3.png" alt="Showcase Design" class="showcase-main">
                 <div class="showcase-float showcase-1">
                     <img src="assets/img/hero/slide1.jpg" alt="Design 1">
@@ -589,6 +679,8 @@
                 </div>
             </div>
         </div>
+
+        
     </footer>
 
     <div class="cart-sidebar" id="cartSidebar">
@@ -710,3 +802,4 @@
     <script src="assets/js/auth.js"></script>
 </body>
 </html>
+

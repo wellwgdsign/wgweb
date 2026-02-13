@@ -117,6 +117,11 @@ nav.scrolled {
     50% { border-color: transparent; }
 }
 
+*::selection{
+    color: #000; /*cor do texto selecionado*/
+    background: #00d4aa; /*cor do Bg selecionado*/
+}
+
 .nav-menu {
     display: flex;
     gap: 2rem;
@@ -243,6 +248,7 @@ nav.scrolled {
     z-index: 0;
 }
 
+
 .hero-carousel-bg {
     position: absolute;
     inset: 0;
@@ -304,10 +310,26 @@ nav.scrolled {
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 760px;
-    padding: 2rem 6%;
+    max-width: 600px;
+    padding: 2rem 2rem;
     margin-top: 80px;
-    margin-left: 7%;
+    margin-left: max(2rem, calc(50vw - 600px));
+}
+
+.imgg {
+    margin-right: -15px;
+    transition: 0.5s ease all
+}
+
+.imgg:hover {
+    margin-left: 10px;
+    filter: grayscale(100%)
+}
+.imgg img{
+    border-radius: 200px !important;
+    border: solid 1px #ffffff60;
+    transition: 0.5s ease all
+
 }
 
 .hero-badge {
@@ -325,6 +347,53 @@ nav.scrolled {
 
 .hero-badge i {
     font-size: 1rem;
+}
+
+selector{
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    mix-blend-mode: screen;
+    -webkit-mix-blend-mode: screen;
+}
+
+.video-background {
+    filter: saturate(5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    display: none;
+}
+.video-placeholder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    mix-blend-mode: plus-lighter;
+    -webkit-mix-blend-mode: plus-lighter;
+}
+
+@media (max-width:767px){
+    .video-background{
+        position: absolute;
+    }
+    selector{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: 100%;
+        opacity: .9;
+    }
 }
 
 .hero-title {
@@ -431,7 +500,7 @@ nav.scrolled {
 
 .hero-visual {
     position: absolute;
-    right: 10%;
+    right: max(2rem, calc(50% - 600px));
     top: 55%;
     transform: translateY(-50%);
     z-index: 1;
@@ -1168,7 +1237,7 @@ nav.scrolled {
 
 .service-card.featured {
     border-color: var(--primary);
-    background: linear-gradient(180deg, rgba(0, 212, 170, 0.05) 0%, var(--bg-card) 100%);
+    background: linear-gradient(-35deg, #00d4aa45, transparent, transparent, #00d4aa45);    
 }
 
 .service-card.featured .service-icon i {
@@ -2321,8 +2390,8 @@ nav.scrolled {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 5%;
-    margin: 0 auto 0 10%;
+    padding: 0 2rem;
+    margin: 0 auto 0 max(2rem, calc(50vw - 600px));
 }
 
 .slide-badge {
@@ -2412,6 +2481,8 @@ nav.scrolled {
     background: var(--bg-dark);
     padding: 60px 0;
     overflow: hidden;
+    max-width: 2800px;
+    margin: 0 auto;
 }
 
 .brands-marquee {
@@ -2466,6 +2537,11 @@ nav.scrolled {
     border-color: var(--primary);
     color: var(--text-primary);
     background: rgba(0, 255, 180, 0.05);
+    transition: 0.7s ease all;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 15px;
+    width: max-content;
 }
 
 .brand-item i {
@@ -2481,7 +2557,7 @@ nav.scrolled {
     padding: 80px 0;
     background: url(https://i.imgur.com/TMmpsZN.png) center top no-repeat;
     background-color: #0a0b0f;
-    background-size: 95%;
+    background-size: 80%;
 
 }
 
@@ -2763,4 +2839,111 @@ nav.scrolled {
     .slider-container {
         height: 70vh;
     }
+}
+
+
+
+.circle-bg {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* Cada órbita */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: spin linear infinite;
+}
+
+/* Os círculos */
+.orbit .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 150, 0.25);
+  box-shadow: 0 0 10px rgba(0, 255, 150, 0.1);
+}
+
+/* As bolinhas orbitando */
+.orbit .dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: #00c46c;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px #00c46c;
+}
+
+/* Tamanhos e velocidades */
+.orbit.one {
+  width: 600px;
+  height: 600px;
+  animation-duration: 120s;
+}
+
+.orbit.two {
+  width: 400px;
+  height: 400px;
+  animation-duration: 90s;
+  animation-direction: reverse;
+}
+
+.orbit.three {
+  width: 200px;
+  height: 200px;
+  animation-duration: 60s;
+}
+
+/* Animação */
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+body {
+  background: #000;
+}
+
+
+body::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+body::-webkit-scrollbar-track {
+    backdrop-filter: blur(20px);
+    background-color: #1f39312b;
+    border-bottom: 1px solid #6666661a;
+    
+}
+
+body::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(0deg, #00d4aa4d, #00d4aa); /* Cor de fundo do marcador de rolagem */
+    border-radius: 20px; /* Arredondamento das bordas do controle deslizante */
+    border: 1px solid #00d4aa4d; /* Borda do controle deslizante */
+}
+
+
+#cursor-background {
+    position: fixed; /* Fixa o fundo do cursor em relação à tela, mesmo durante a rolagem */
+    width: 40px; /* Define a largura do fundo do cursor */
+    height: 40px; /* Define a altura do fundo do cursor */
+    box-shadow: 0 0 40px #00d4aa4d;
+    transform: translateY(-2px);
+    border-radius: 50%; /* Faz com que o fundo do cursor tenha bordas arredondadas, formando um círculo */
+    border: solid 1px #00ffcc; /* Adiciona uma borda sólida de 1px da cor que você definir*/
+    pointer-events: none; /* Garante que o cursor não interfira nas interações da página, como cliques ou seleções */
+    z-index: 9999; /* Mantém o fundo do cursor acima de todos os outros elementos da página */
+    mix-blend-mode: difference; /* Aplica o efeito de "diferença", o que inverte as cores onde o fundo do cursor passa, criando um contraste interessante */
 }
