@@ -296,6 +296,7 @@ function renderShopFilterButtons() {
 }
 
 function initPortfolioFilters() {
+    var isSubPage = window.location.pathname.includes('/pages/');
     const filterBtns = document.querySelectorAll('.filter-btn');
     
     filterBtns.forEach(btn => {
@@ -307,14 +308,18 @@ function initPortfolioFilters() {
             newBtn.classList.add('active');
             
             const filter = newBtn.dataset.filter;
-            document.querySelectorAll('.portfolio-item').forEach(item => {
-                if (filter === 'all' || item.dataset.category === filter) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.5s ease';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            if (filter === 'all' && !isSubPage) {
+                filterPortfolioOnePerCategory();
+            } else {
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
         });
     });
 }
@@ -1513,5 +1518,23 @@ function renderDynamicPortfolio() {
         grid.appendChild(el);
     });
 
+    if (!isSubPage) {
+        filterPortfolioOnePerCategory();
+    }
+
     initPortfolioFilters();
+}
+
+function filterPortfolioOnePerCategory() {
+    var items = document.querySelectorAll('.portfolio-item');
+    var seen = {};
+    items.forEach(function(item) {
+        var cat = item.dataset.category;
+        if (seen[cat]) {
+            item.style.display = 'none';
+        } else {
+            seen[cat] = true;
+            item.style.display = 'block';
+        }
+    });
 }
